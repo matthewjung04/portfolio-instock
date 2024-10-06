@@ -1,0 +1,48 @@
+* {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+}
+
+
+
+@mixin section-main ($color) {
+    width:100%;
+    background-color: $color;
+}
+
+@mixin display-layout ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+h3 {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+}
+
+.header {
+    @include section-main(#232940);
+    height: 12.5rem;
+
+    &__container{
+        @include display-layout(1.5rem 0, 0);
+        display: flex;
+        flex-direction: column;
+
+        &__logo__link {
+            align-self: center;
+            cursor: pointer;
+        }
+    
+        &__nav {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+
+            &--warehouse {
+                display: inline-block;
+            }
+        }
+    }
+}

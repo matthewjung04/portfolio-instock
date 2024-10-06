@@ -9,6 +9,20 @@ const Header = () => {
                 <a to="/" className="header__container__logo__link">
                     <img className="header__container__logo" src={InStockLogo}/>
                 </a>
+                <nav>
+                    <ul className="header__container__nav">
+                        <li className="header__container__nav--warehouse">
+                            <a className="header__container__nav__link--warehouse">
+                                Warehouse
+                            </a>
+                        </li>
+                        <li className="header__container__nav--inventory">
+                            <a className="header__container__nav__link--inventory">
+                                Inventory
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </header>
     );
