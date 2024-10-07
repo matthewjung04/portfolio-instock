@@ -97,8 +97,12 @@ h3 {
                 width: 50%;
                 border-radius: 1.25rem;
 
+                :hover {
+                    text-decoration: underline;
+                }
+
                 @include tablet {
-                    width: 7.25rem;
+                    width: 7.75rem;
                 }
                 
                 &--link {
@@ -110,10 +114,17 @@ h3 {
             }
 
             &--inventory {
-                @extend .header__container__nav--warehouse;
-
+                display: flex;
+                width: 50%;
+                
+                :hover {
+                    color: #FFFFFF;
+                    text-decoration: underline;            
+                }
+                
                 &--link {
                     @extend .header__container__nav--warehouse--link;
+                    color: #BDC5D5;
                 }
             }
         }
