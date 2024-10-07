@@ -32,6 +32,12 @@
     margin: $margin;
 }
 
+@mixin desktop-layout ($padding) {
+    width: 1280px;
+    margin: 0 auto;
+    padding: $padding;
+}
+
 h3 {
     font-size: 0.8125rem;
     line-height: 1.25rem;
@@ -60,6 +66,11 @@ h3 {
             @include display-layout(2rem 0, 0 2rem);
             flex-direction: row;
             justify-content: space-between;
+        }
+
+        @include desktop {
+            @include desktop-layout(2rem);
+            max-width: 63.75rem;
         }
 
         &__logo__link {
