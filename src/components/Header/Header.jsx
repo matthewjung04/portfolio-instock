@@ -12,12 +12,12 @@ const Header = () => {
                 <nav>
                     <ul className="header__container__nav">
                         <li className="header__container__nav--warehouse">
-                            <a className="header__container__nav__link--warehouse">
-                                Warehouse
+                            <a className="header__container__nav--warehouse--link">
+                                Warehouses
                             </a>
                         </li>
                         <li className="header__container__nav--inventory">
-                            <a className="header__container__nav__link--inventory">
+                            <a className="header__container__nav--inventory--link">
                                 Inventory
                             </a>
                         </li>
