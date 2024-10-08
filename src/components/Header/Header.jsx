@@ -5,7 +5,7 @@ import InStockLogo from "../../assets/logos/InStock-Logo.svg";
 
 const Header = () => {
 
-    const [activeNav, setActiveNav] = useState("warehouses");
+    const [activeNav, setActiveNav] = useState("warehouses");   //State created to store active Nav option
 
     const handleNavClick = (navOption) => {
         setActiveNav(navOption);
