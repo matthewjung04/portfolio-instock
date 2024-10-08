@@ -90,42 +90,39 @@ h3 {
                 padding: 0;
             }
 
-            &--warehouse {
+            &--box {
                 display: flex;
-                background-color: #13182C;
-                border: 0.0625rem solid #13182C;
                 height: 2.25rem;
                 width: 50%;
-                border-radius: 1.25rem;
 
-                :hover {
-                    text-decoration: underline;
-                }
-
-                @include tablet {
-                    width: 7.75rem;
-                }
-                
-                &--link {
-                    @extend h3;
-                    color: #FFFFFF;
-                    margin: auto;
-                    cursor: pointer;
-                }
-            }
-
-            &--inventory {
-                display: flex;
-                width: 50%;
-                
                 :hover {
                     color: #FFFFFF;
                     text-decoration: underline;            
                 }
+
+                &--active {
+                    @extend .header__container__nav--box;
+                    background-color: #13182C;
+                    border: 0.0625rem solid #13182C;
+                    border-radius: 1.25rem;
+                }
+
+                @include tablet {
+                    height: 2.375rem;
+                    width: 6.6875rem;
+                }
                 
                 &--link {
-                    @extend .header__container__nav--warehouse--link;
+                    @extend h3;
                     color: #BDC5D5;
+                    margin: auto;
+                    cursor: pointer;
+                    text-decoration: none;
+
+                    &--active {
+                        @extend .header__container__nav--box--link;
+                        color: #FFFFFF;
+                    }
                 }
             }
         }

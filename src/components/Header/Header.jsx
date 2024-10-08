@@ -1,25 +1,33 @@
 import "./Header.scss";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import InStockLogo from "../../assets/logos/InStock-Logo.svg";
 
 const Header = () => {
+
+    const [activeNav, setActiveNav] = useState("warehouses");
+
+    const handleNavClick = (navOption) => {
+        setActiveNav(navOption);
+    };
+
     return (
         <header className="header">
             <div className="header__container">
-                <a to="/" className="header__container__logo__link">
+                <Link to="/" className="header__container__logo__link">
                     <img className="header__container__logo" src={InStockLogo}/>
-                </a>
+                </Link>
                 <nav>
                     <ul className="header__container__nav">
-                        <li className="header__container__nav--warehouse">
-                            <a className="header__container__nav--warehouse--link">
+                        <li className={`header__container__nav--box${activeNav === "warehouses" ? "--active" : ""}`} >
+                            <Link to="/" onClick={() => handleNavClick("warehouses")} className={`header__container__nav--box--link${activeNav === "warehouses" ? "--active" : ""}`}>
                                 Warehouses
-                            </a>
+                            </Link>
                         </li>
-                        <li className="header__container__nav--inventory">
-                            <a className="header__container__nav--inventory--link">
+                        <li className={`header__container__nav--box${activeNav === "inventory" ? "--active" : ""}`}>
+                            <Link to="/inventory" onClick={() => handleNavClick("inventory")} className={`header__container__nav--box--link${activeNav === "inventory" ? "--active" : ""}`}>
                                 Inventory
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
