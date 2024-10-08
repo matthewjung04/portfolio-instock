@@ -1,0 +1,130 @@
+* {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Titillium-Web-Semi-bold";
+    src: url("../../assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format("opentype");
+    font-weight: 600;
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin section-main ($color) {
+    width:100%;
+    background-color: $color;
+}
+
+@mixin display-layout ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin desktop-layout ($padding) {
+    width: 1280px;
+    margin: 0 auto;
+    padding: $padding;
+}
+
+h3 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    font-family: Titillium-Web-Semi-bold;
+
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+.header {
+    @include section-main(#232940);
+    height: 12.5rem;
+
+    @include tablet {
+        height: 11.625rem;
+    }
+
+    &__container{
+        @include display-layout(1.5rem 0, 0);
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            @include display-layout(2rem 0, 0 2rem);
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            @include desktop-layout(2rem);
+            max-width: 63.75rem;
+        }
+
+        &__logo__link {
+            align-self: center;
+            cursor: pointer;
+        }
+    
+        &__nav {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.5rem 1rem;
+
+            @include tablet {
+                padding: 0;
+            }
+
+            &--box {
+                display: flex;
+                height: 2.25rem;
+                width: 50%;
+
+                :hover {
+                    color: #FFFFFF;
+                    text-decoration: underline;            
+                }
+
+                &--active {
+                    @extend .header__container__nav--box;
+                    background-color: #13182C;
+                    border: 0.0625rem solid #13182C;
+                    border-radius: 1.25rem;
+                }
+
+                @include tablet {
+                    height: 2.375rem;
+                    width: 6.6875rem;
+                }
+                
+                &--link {
+                    @extend h3;
+                    color: #BDC5D5;
+                    margin: auto;
+                    cursor: pointer;
+                    text-decoration: none;
+
+                    &--active {
+                        @extend .header__container__nav--box--link;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}

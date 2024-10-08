@@ -1,14 +1,16 @@
 import { useState } from 'react'
-import './App.scss'
 import Footer from './Components/Footer/Footer'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.scss'
+import Header from './components/Header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <>
+    <BrowserRouter>
+      <Header />
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 
