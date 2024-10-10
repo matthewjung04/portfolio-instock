@@ -1,8 +1,10 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/media-query/' as *;
+@use '../../App.scss' as *;
 
 .header {
-    @include section-main($instock-black);
+    @include section-main($graphite);
     height: 12.5rem;
 
     @include tablet {
