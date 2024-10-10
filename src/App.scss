@@ -1,44 +1,100 @@
 @use './styles/partials/variables' as *;
+@use './styles/partials/fonts/' as *;
+@use './styles/partials/mixins/' as *;
 
 * {
   margin: 0rem;
   padding: 0rem;
   box-sizing: border-box;
   text-align: center;
-  font-family: TitilliumWeb-Regular
+  font-family: TitilliumWeb-Regular;
 }
 
 h1 {
   font-size: $m-h1-size;
   line-height: $m-h1-line-height;
+  font-family: TitilliumWeb-Semibold;
+  font-weight: 600;
+  color: $instock-black;
+
+    @include tablet {
+      font-size: $h1-size;
+      line-height: $m-h1-line-height;
+    }
 }
 
-@font-face {
-  font-family: "TitilliumWeb-Regular";
-  src: url("./assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf") format("truetype");
+h2 {
+  font-size: $m-h2-size;
+  line-height: $m-h2-line-height;
+  font-family: TitilliumWeb-Semibold;
+  font-weight: 600;
+  color: $instock-black;
+
+    @include tablet {
+      font-size: $h2-size;
+      line-height: $h2-line-height;
+    }
 }
 
-@mixin mobile-body {
+h3 {
+  font-size: $m-h3-size;
+  line-height: $m-h3-line-height;
+  font-family: TitilliumWeb-Semibold;
+  font-weight: 600;
+  color: $instock-black;
+
+    @include tablet {
+      font-size: $h3-size;
+      line-height: $h3-line-height;
+    }
+}
+
+h4 {
+  font-size: $m-h4-size;
+  line-height: $m-h4-line-height;
+  font-family: TitilliumWeb-Semibold;
+  font-weight: 600;
+  color: $cloud;
+
+    @include tablet {
+      font-size: $h4-size;
+      line-height: $h4-line-height;
+    }
+}
+
+p {
+  font-size: $m-p1-size;
+  line-height: $m-p1-line-height;
   font-family: TitilliumWeb-Regular;
-  font-size: 0.6875rem;
-  line-height: 1rem;
+  font-weight: 400;
+  color: $instock-black;
+
+    @include tablet {
+      font-size: $p1-size;
+      line-height: $p1-line-height;
+    }
 }
 
-@mixin tablet-desktop_body {
+.p2 {
+  font-size: $m-p2-size;
+  line-height: $m-p2-line-height;
   font-family: TitilliumWeb-Regular;
-  font-size: 0.75rem;
-  line-height: 1.125rem;
+  font-weight: 400;
+  color: $instock-black;
+
+    @include tablet {
+      font-size: $p2-size;
+      line-height: $p2-line-height;
+    }
 }
+
+
+
+
 
 body {
   background-color: #F7F8F9;
-  @include mobile-body;
-
   margin: 0rem;
   padding: 0rem;
   box-sizing: border-box;
-
-  @media(min-width:768px) {
-    @include tablet-desktop_body;
-  }
 }

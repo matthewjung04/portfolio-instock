@@ -1,7 +1,13 @@
 @use "./variables" as *;
 
-@mixin mobileheader {
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
 }
 
-@mixin mobilefooter {
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
 }
