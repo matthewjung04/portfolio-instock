@@ -88,6 +88,19 @@ p {
     }
 }
 
+.p3 {
+  font-size: $m-p3-size;
+  line-height: $m-p3-line-height;
+  font-family: TitilliumWeb-Regular;
+  font-weight: 400;
+  color: $instock-black;
+
+    @include tablet {
+      font-size: $p3-size;
+      line-height: $p3-line-height;
+    }
+}
+
 
 
 
