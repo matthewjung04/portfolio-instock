@@ -1,13 +1,13 @@
 import Header from './components/Header/Header'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Warehouses from './components/Warehouses';
-import AddWarehouse from './components/AddWarehouse';
-import WarehouseDetails from './components/WarehouseDetails';
-import EditWarehouse from './components/EditWarehouse';
-import Inventory from './components/Inventory';
-import AddInventory from './components/AddInventory';
-import InventoryDetails from './components/InventoryDetails';
-import EditInventory from './components/EditInventory';
+import Warehouses from './components/Warehouses/Warehouses';
+import AddWarehouse from './components/AddWarehouse/AddWarehouse';
+import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
+import Inventory from './components/Inventory/Inventory';
+import AddInventory from './components/AddInventory/AddInventory';
+import InventoryDetails from './components/InventoryDetails/InventoryDetails';
+import EditInventory from './components/EditInventory/EditInventory';
 import Footer from './components/Footer/Footer'
 import "./App.scss";
 
