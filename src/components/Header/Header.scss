@@ -49,14 +49,14 @@
                 width: 50%;
 
                 :hover {
-                    color: #FFFFFF;
+                    color: $white;
                     text-decoration: underline;            
                 }
 
                 &--active {
                     @extend .header__container__nav--box;
-                    background-color: #13182C;
-                    border: 0.0625rem solid #13182C;
+                    background-color: $instock-black;
+                    border: 0.0625rem solid $instock-black;
                     border-radius: 1.25rem;
                 }
 
@@ -67,14 +67,14 @@
                 
                 &--link {
                     @extend h3;
-                    color: #BDC5D5;
+                    color: $cloud;
                     margin: auto;
                     cursor: pointer;
                     text-decoration: none;
 
                     &--active {
                         @extend .header__container__nav--box--link;
-                        color: #FFFFFF;
+                        color: $white;
                     }
                 }
             }
