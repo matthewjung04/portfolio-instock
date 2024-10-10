@@ -1,4 +1,4 @@
-@use "../../assets/fonts/" as *;
+@use "./fonts/" as *;
 
 $instock-black: #13182c;
 $instock-indigo: #2e66e5;
@@ -21,58 +21,46 @@ $font-weight-regular: 400;
 $font-weight-semibold: 600;
 
 // Desktop & Tablet
-$h1-size: 32px;
-$h1-line-height: 40px;
+$h1-size: 2rem;
+$h1-line-height: 2.5rem;
 
-$h2-size: 24px;
-$h2-line-height: 32px;
+$h2-size: 1.5rem;
+$h2-line-height: 2rem;
 
-$h3-size: 14px;
-$h3-line-height: 22px;
+$h3-size: 0.875rem;
+$h3-line-height: 1.375rem;
 
-$h4-size: 12px;
-$h4-line-height: 18px;
+$h4-size: 0.75rem;
+$h4-line-height: 1.125rem;
 
-$p1-size: 16px;
-$p1-line-height: 28px;
+$p1-size: 1rem;
+$p1-line-height: 1.75rem;
 
-$p2-size: 14px;
-$p2-line-height: 22px;
+$p2-size: 0.875rem;
+$p2-line-height: 1.375rem;
 
-$p3-size: 12px;
-$p3-line-height: 18px;
+$p3-size: 0.75rem;
+$p3-line-height: 1.125rem;
 
 // Mobile
-$m-h1-size: 28px;
-$m-h1-line-height: 36px;
+$m-h1-size: 1.75rem;
+$m-h1-line-height: 2.25rem;
 
-$m-h2-size: 20px;
-$m-h2-line-height: 28px;
+$m-h2-size: 1.25rem;
+$m-h2-line-height: 1.75rem;
 
-$m-h3-size: 13px;
-$m-h3-line-height: 20px;
+$m-h3-size: 0.8125rem;
+$m-h3-line-height: 1.25rem;
 
-$m-h4-size: 11px;
-$m-h4-line-height: 16px;
+$m-h4-size: 0.6875rem;
+$m-h4-line-height: 1rem;
 
-$m-p1-size: 15px;
+$m-p1-size: 0.9375rem;
 $m-p1-line-height: 26px;
 
-// Spacing
-$space-4: 4px;
-$space-8: 8px;
-$space-16: 16px;
-$space-24: 24px;
-$space-32: 32px;
-$space-40: 40px;
-$space-48: 48px;
-$space-56: 56px;
-$space-64: 64px;
-$space-80: 80px;
+$button-height: 2.375rem;
+$button-padding-horizontal: 1rem;
+$border-radius: 1.25rem;
 
-$button-height: 38px;
-$button-padding-horizontal: 16px;
-$border-radius: 20px;
-
-$form-field-height: 38px;
-$form-padding-horizontal: 16px;
+$form-field-height: 2.375rem;
+$form-padding-horizontal: 1rem;

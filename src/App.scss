@@ -1,18 +1,33 @@
+@use './styles/partials/variables' as *;
+
+* {
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: TitilliumWeb-Regular
+}
+
+h1 {
+  font-size: $m-h1-size;
+  line-height: $m-h1-line-height;
+}
+
 @font-face {
-  font-family: TitilliumWeb-Regular;
+  font-family: "TitilliumWeb-Regular";
   src: url("./assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf") format("truetype");
 }
 
 @mixin mobile-body {
   font-family: TitilliumWeb-Regular;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 0.6875rem;
+  line-height: 1rem;
 }
 
 @mixin tablet-desktop_body {
   font-family: TitilliumWeb-Regular;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
 }
 
 body {
