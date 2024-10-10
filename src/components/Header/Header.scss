@@ -1,57 +1,8 @@
-* {
-    margin: 0rem;
-    padding: 0rem;
-    box-sizing: border-box;
-}
-
-@font-face {
-    font-family: "Titillium-Web-Semi-bold";
-    src: url("../../assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format("opentype");
-    font-weight: 600;
-}
-
-@mixin tablet {
-    @media (min-width: 768px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: 1280px) {
-        @content;
-    }
-}
-
-@mixin section-main ($color) {
-    width:100%;
-    background-color: $color;
-}
-
-@mixin display-layout ($padding, $margin) {
-    padding: $padding;
-    margin: $margin;
-}
-
-@mixin desktop-layout ($padding) {
-    width: 1280px;
-    margin: 0 auto;
-    padding: $padding;
-}
-
-h3 {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    line-height: 1.25rem;
-    font-family: Titillium-Web-Semi-bold;
-
-    @include tablet {
-        font-size: 0.875rem;
-        line-height: 1.375rem;
-    }
-}
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .header {
-    @include section-main(#232940);
+    @include section-main($instock-black);
     height: 12.5rem;
 
     @include tablet {

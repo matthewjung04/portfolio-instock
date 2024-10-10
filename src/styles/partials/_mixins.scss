@@ -11,3 +11,19 @@
         @content;
     }
 }
+
+@mixin section-main ($color) {
+    width:100%;
+    background-color: $color;
+}
+
+@mixin display-layout ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin desktop-layout ($padding) {
+    width: 1280px;
+    margin: 0 auto;
+    padding: $padding;
+}
