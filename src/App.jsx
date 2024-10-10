@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Warehouses from './components/Warehouses';
 import AddWarehouse from './components/AddWarehouse';
@@ -34,5 +34,5 @@ function App() {
     
   );
 
-
+}
 export default App;
