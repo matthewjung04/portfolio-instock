@@ -19,6 +19,10 @@ body {
   background-color: #F7F8F9;
   @include mobile-body;
 
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+
   @media(min-width:768px) {
     @include tablet-desktop_body;
   }
