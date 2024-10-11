@@ -1,12 +1,17 @@
 import { useParams } from 'react-router-dom';
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 
-function WarehouseDetails() {
+const WarehouseDetails = () => {
   const { id } = useParams();
   return (
-    <div>
-      <h1>Warehouse Details</h1>
-      <p>Details for warehouse {id} will be displayed here.</p>
-    </div>
+    <section className="warehouse-details">
+        <div className="warehouse-details__container">
+            <div className="warehouse-details__container--top">
+                <img src={arrowBack}/>
+            </div>
+      </div>
+
+    </section>
   );
 }
 
