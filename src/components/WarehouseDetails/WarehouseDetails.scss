@@ -32,7 +32,7 @@
         }
     }
 
-    &__info-container {
+    &__wrapper {
         border-top: 0.0625rem solid $cloud;
     
         &__wrapper {
@@ -42,5 +42,9 @@
                 padding-top: 0.25rem;
             }
         }
+    }
+
+    &__info-container {
+
     }
 }
