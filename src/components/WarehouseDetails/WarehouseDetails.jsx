@@ -1,6 +1,9 @@
 import { useParams } from 'react-router-dom';
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import editWhite from "../../assets/icons/edit-white-24px.svg";
+import chevron from "../../assets/icons/chevron_right-24px.svg";
+import editBlue from "../../assets/icons/edit-24px.svg";
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
 import './WarehouseDetails.scss'
 
 const WarehouseDetails = () => {
@@ -44,6 +47,37 @@ const WarehouseDetails = () => {
                             <br/>gylon@instock.com
                         </p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div className="warehouse-details__wrapper-inventory">
+            <div className="warehouse-details__wrapper-inventory__container">
+                <div className="warehouse-details__wrapper-inventory__container--one">
+                    <div className="warehouse-details__wrapper-inventory__container--one--item">
+                        <h4>INVENTORY ITEM</h4>
+                        <div className="warehouse-details__wrapper-inventory__container--one--item--box">
+                            <h3>Television</h3>
+                            <img src={chevron}/>
+                        </div>     
+                    </div>
+                    <div className="warehouse-details__wrapper-inventory__container--one--category">
+                        <h4>CATEGORY</h4>
+                        <p className="p2">Electronics</p>
+                    </div>
+                </div>
+                <div className="warehouse-details__wrapper-inventory__container--two">
+                    <div className="warehouse-details__wrapper-inventory__container--two--status">
+                        <h4>STATUS</h4>
+                        <h4>IN STOCK</h4>
+                    </div>
+                    <div className="warehouse-details__wrapper-inventory__container--two--quantity">
+                        <h4>QTY</h4>
+                        <p className="p2">500</p>
+                    </div>
+                </div>
+                <div className="warehouse-details__wrapper-inventory__container--three">
+                    <img src={deleteIcon}/>
+                    <img src={editBlue}/>
                 </div>
             </div>
         </div>
