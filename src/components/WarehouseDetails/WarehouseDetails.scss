@@ -1,12 +1,33 @@
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 .warehouse-details {
-    background-color: red;
-    position: relative;
-    top: -55px;
-    margin: 0 1rem;
+    @include page-layout;
 
     &__container {
+        @include display-layout(1.5rem 0, 0 1.5rem);
 
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            &__box {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+
+                &--arrow {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
+            }   
+            
+            &--edit {
+                background-color: $instock-indigo;
+                border-radius: 100%;
+                padding: 0.5rem;
+            }   
+        }
     }
 }
