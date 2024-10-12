@@ -1,5 +1,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+@use '../../App.scss' as *;
 
 .warehouse-details {
     @include page-layout;
@@ -28,6 +29,14 @@
                 border-radius: 100%;
                 padding: 0.5rem;
             }   
+        }
+    }
+
+    &__info-container {
+        border-top: 0.0625rem solid $cloud;
+    
+        &__wrapper {
+            @include display-layout(1.5rem 0, 0 1.5rem);
         }
     }
 }

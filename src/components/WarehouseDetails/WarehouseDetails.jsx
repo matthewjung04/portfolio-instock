@@ -14,8 +14,16 @@ const WarehouseDetails = () => {
                     <h1 className="warehouse-details__container__top__box--title" >Washington</h1>
                 </div>
                     <img className="warehouse-details__container__top--edit" src={editWhite}/>
+            </div> 
+        </div>
+        <div className="warehouse-details__info-container">
+            <div className="warehouse-details__info-container__wrapper">
+                <h4>WAREHOUSE ADDRESS:</h4>
+                <p className="warehouse-details__info-container__wrapper p2">
+                    33 Pearl Street SW, Washington, USA
+                </p>
             </div>
-      </div>
+        </div>
 
     </section>
   );
