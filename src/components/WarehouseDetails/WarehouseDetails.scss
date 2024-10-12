@@ -1,0 +1,12 @@
+@use '../../styles/partials/mixins' as *;
+
+.warehouse-details {
+    background-color: red;
+    position: relative;
+    top: -55px;
+    margin: 0 1rem;
+
+    &__container {
+
+    }
+}

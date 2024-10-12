@@ -1,13 +1,17 @@
 import { useParams } from 'react-router-dom';
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
+import editWhite from "../../assets/icons/edit-white-24px.svg";
+import './WarehouseDetails.scss'
 
 const WarehouseDetails = () => {
   const { id } = useParams();
   return (
     <section className="warehouse-details">
         <div className="warehouse-details__container">
-            <div className="warehouse-details__container--top">
-                <img src={arrowBack}/>
+            <div className="warehouse-details__container__top">
+                <img className="warehouse-details__container__top--arrow" src={arrowBack}/>
+                <h1 className="warehouse-details__container__top--title" >Washington</h1>
+                <img className="warehouse-details__container__top--edit" src={editWhite}/>
             </div>
       </div>
 
