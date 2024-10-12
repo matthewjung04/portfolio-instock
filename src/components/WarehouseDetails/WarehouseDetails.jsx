@@ -19,9 +19,25 @@ const WarehouseDetails = () => {
         <div className="warehouse-details__info-container">
             <div className="warehouse-details__info-container__wrapper">
                 <h4>WAREHOUSE ADDRESS:</h4>
-                <p className="warehouse-details__info-container__wrapper p2">
+                <p className="warehouse-details__info-container__wrapper--text p2">
                     33 Pearl Street SW, Washington, USA
                 </p>
+                <div className="warehouse-details__info__container__wrapper__bottom">
+                    <div className="warehouse-details__info__container__wrapper__bottom--name">
+                        <h4>CONTACT NAME:</h4>
+                        <p className="warehouse-details__info__container__wrapper__bottom--name--text p2">
+                            Graeme Lyon 
+                            <br/>Warehouse Manager
+                        </p>
+                    </div>
+                    <div className="warehouse-details__info__container__wrapper__bottom--information">
+                        <h4>CONTACT INFORMATION:</h4>
+                        <p className="warehouse-details__info__container__wrapper__bottom--information--text p2">
+                            +1 (647) 504-0911
+                            <br/>gylon@instock.com
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
