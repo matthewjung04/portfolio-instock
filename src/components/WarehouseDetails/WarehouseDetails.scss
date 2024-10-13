@@ -92,6 +92,9 @@
 
                 &--two {
                     width: 7.3rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
 
                     &--status {
                         &--box {
@@ -103,7 +106,19 @@
                             }
                         }
                     }
+
+                    &--quantity {
+                        &--number {
+                            padding-top: 0.25rem;
+                        }
+                    }
                 }
+            }
+
+            &__bottom {
+                padding-top: $mobile-padding;
+                display: flex;
+                justify-content: space-between;
             }
         }
     }

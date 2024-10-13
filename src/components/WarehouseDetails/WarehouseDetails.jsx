@@ -76,7 +76,7 @@ const WarehouseDetails = () => {
                         </div>
                         <div className="warehouse-details__wrapper-inventory__container__top--two--quantity">
                             <h4>QTY</h4>
-                            <p className="p2">500</p>
+                            <p className="warehouse-details__wrapper-inventory__container__top--two--quantity--number p2">500</p>
                         </div>
                     </div>
                 </div>
