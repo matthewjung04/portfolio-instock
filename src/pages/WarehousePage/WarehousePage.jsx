@@ -24,7 +24,9 @@ const WarehousePage = () => {
     };
 
     useEffect(() => {
-        fetchWarehouseDetails(id);
+        if(id) {
+            fetchWarehouseDetails(id);
+        }
     }, [id]);
 
 
