@@ -15,7 +15,10 @@ const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, ware
                         <img className="warehouse-details__container__top__box--arrow" src={arrowBack}/>
                         <h1 className="warehouse-details__container__top__box--title">{warehouseName}</h1>
                     </div>
-                        <img className="warehouse-details__container__top--edit" src={editWhite}/>
+                    <div className="warehouse-details__container__top__box-edit">
+                        <img className="warehouse-details__container__top__box-edit--icon" src={editWhite}/>
+                        <h3 className="warehouse-details__container__top__box-edit--text">Edit</h3>
+                    </div>
                 </div> 
             </div>
             <div className="warehouse-details__wrapper">

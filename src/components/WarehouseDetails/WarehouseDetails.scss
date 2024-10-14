@@ -1,9 +1,14 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../App.scss' as *;
+@use '../../styles/partials/media-query' as *;
 
 .warehouse-details {
     @include page-layout;
+
+    @include tablet {
+        margin: 0 2rem; 
+    }
 
     &__container {
         @include display-layout(1.5rem 0, 0 1.5rem);
@@ -24,11 +29,36 @@
                 }
             }   
             
-            &--edit {
-                background-color: $instock-indigo;
-                border-radius: 100%;
-                padding: 0.5rem;
-            }   
+            &__box-edit {
+                
+                @include tablet {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+                &--icon {
+                    background-color: $instock-indigo;
+                    border-radius: 100%;
+                    padding: 0.5rem;
+    
+                    @include tablet {
+                        width: 5.06rem;
+                        height: 2.375rem;
+                        border-radius: 1.25rem;
+                        padding-right: 2.25rem;
+                    }
+                }
+                &--text {
+                    display: none;
+
+                    @include tablet {
+                        display: block;
+                        position: absolute;
+                        color: $white;
+                        right: 1rem;
+                    }
+                }
+            }
         }
     }
 

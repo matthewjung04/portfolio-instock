@@ -41,7 +41,7 @@ const WarehousePage = () => {
                 warehouseContactPosition = {warehouseDetails.contact_position}
                 warehouseContactPhone = {warehouseDetails.contact_phone}
                 warehouseContactEmail = {warehouseDetails.contact_email}
-            /> : "loading"
+            /> : "loading..."
             }
         </>
     )
