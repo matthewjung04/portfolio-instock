@@ -72,11 +72,26 @@
         &__container {
             @include display-layout($mobile-padding 0, 0 2.75rem 0 1.5rem);
 
+            @include tablet {
+                @include display-layout($tablet-padding 0, 0 5.75rem 0 2rem);
+                display: flex;
+                justify-content: space-between;
+            }
+
             &__address {
+                @include tablet {
+                    border-right: 0.0625rem solid $cloud;
+                    padding-right: 7.5rem;
+                }
+
                 &__text {
                     display: flex;
                     gap: 0.25rem;
                     padding-top: 0.25rem;
+
+                    @include tablet {
+                        flex-direction: column;                        
+                    }
                 }
             }
 
@@ -85,6 +100,24 @@
                 display: flex;
                 gap: 0.5rem;
                 justify-content: space-between;
+
+                @include tablet {
+                    padding-top: 0;
+                    gap: 2.5rem;
+                }
+
+                &--name--text {
+                    @include tablet {
+                        padding-top: 0.25rem;
+                    }
+                }
+
+                &--information--text {
+
+                    @include tablet {
+                        padding-top: 0.25rem;
+                    }
+                }
             }
         }
     }
@@ -92,8 +125,49 @@
     &__wrapper-inventory {
         border-top: 0.0625rem solid $cloud;
 
+        &__labels {
+            display: none;
+
+            @include tablet {
+                padding: 0.5rem 2rem;
+                background-color: $light-grey;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &__container-one {
+                display: flex; 
+                justify-content: space-between;
+                gap: 2.5rem;
+
+                &__box {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            &__container-two {
+                display: flex;
+                justify-content: space-between;
+                gap: 4rem;
+
+                &__box {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+
+        @include tablet {
+            border-top: 0;
+        }
+
         &__container {
             @include display-layout($mobile-padding 0, 0 1.5rem);
+
+            @include tablet {
+                @include display-layout(1rem 0 1.5rem 0, 0 2rem)
+            }
 
             &__top {
                 display: flex;
@@ -107,6 +181,12 @@
                     gap: 1rem;
 
                     &--item {
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
                         &--box {
                             display: flex;
                             padding-top: 0.25rem;
@@ -118,6 +198,12 @@
                     }
 
                     &--category {
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
                         &--text {
                             padding-top: 0.25rem;
                         }
@@ -131,6 +217,12 @@
                     gap: 1rem;
 
                     &--status {
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
                         &--box {
                             width: auto;
                             padding-top:0.25rem;
@@ -142,6 +234,12 @@
                     }
 
                     &--quantity {
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
                         &--number {
                             padding-top: 0.25rem;
                         }
