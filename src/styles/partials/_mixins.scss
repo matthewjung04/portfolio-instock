@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./media-query" as *;
 
 @mixin section-main ($color) {
     width:100%;
@@ -19,10 +20,14 @@
 @mixin page-layout {
     background-color: $white;
     position: relative;
-    top: -55px;
+    top: -3.4375rem;
     margin: 0 $mobile-margin;
     border-radius: 0.18755rem;
     box-shadow: 0 0.125rem 0.3125rem 0 rgba(19, 24, 44, 0.1);
+
+    @include tablet {
+        top: -5.94rem;
+    }
 }
 
 @mixin instock-tag {
