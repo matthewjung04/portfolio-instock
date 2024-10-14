@@ -70,18 +70,16 @@
         border-top: 0.0625rem solid $cloud;
     
         &__container {
-            @include display-layout($mobile-padding 0, 0 2.75rem 0 1.5rem);
+            @include display-layout($mobile-padding 0, 0 2.25rem 0 1.5rem);
 
             @include tablet {
                 @include display-layout($tablet-padding 0, 0 5.75rem 0 2rem);
                 display: flex;
-                justify-content: space-between;
             }
 
             &__address {
                 @include tablet {
-                    border-right: 0.0625rem solid $cloud;
-                    padding-right: 7.5rem;
+                    width: 49%;
                 }
 
                 &__text {
@@ -98,26 +96,44 @@
             &__bottom {
                 padding-top: 1.5rem;
                 display: flex;
-                gap: 0.5rem;
-                justify-content: space-between;
 
                 @include tablet {
                     padding-top: 0;
                     gap: 2.5rem;
+                    width: 60%;
                 }
 
-                &--name--text {
-                    @include tablet {
-                        padding-top: 0.25rem;
-                    }
-                }
-
-                &--information--text {
+                &--name {
+                    width: 55%;
 
                     @include tablet {
-                        padding-top: 0.25rem;
+                        padding-left: 2rem;
+                        border-left:0.0625rem solid $cloud;
+                        width: 60%;
+                    }
+
+                    &--text {
+                        @include tablet {
+                            padding-top: 0.25rem;
+                        }
                     }
                 }
+                
+                
+
+                &--information {
+                    @include tablet {
+                        width: 45%;
+                    }
+
+                    &--text {
+                        @include tablet {
+                            padding-top: 0.25rem;
+                        }
+                    }
+
+                }
+                    
             }
         }
     }
@@ -125,7 +141,7 @@
     &__wrapper-inventory {
         border-top: 0.0625rem solid $cloud;
 
-        &__labels {
+        &__labels-tablet {
             display: none;
 
             @include tablet {
@@ -172,13 +188,24 @@
             &__top {
                 display: flex;
                 padding-right: 1.25rem;
-                justify-content: space-between;
+
+                @include tablet {
+                    flex-direction: row;
+                    padding-right: 0;
+                    justify-content: space-between;
+                }
 
                 &--one {
-                    width: 7rem;
                     display: flex;
                     flex-direction: column;
                     gap: 1rem;
+                    width: 56.5%;
+
+                    @include tablet {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        gap: 4rem;
+                    }
 
                     &--item {
                         &--header {
@@ -207,7 +234,23 @@
                         &--text {
                             padding-top: 0.25rem;
                         }
+                    
                     }
+                        &--status-box--tablet {
+                            display: none;
+
+                            @include tablet {
+                                display: inline-block;
+                                width: auto;
+                            }
+
+                            &--text {
+                                @include tablet {
+                                    @include instock-tag;
+                                }
+                            }
+                            
+                        }
                 }
 
                 &--two {
@@ -215,6 +258,12 @@
                     display: flex;
                     flex-direction: column;
                     gap: 1rem;
+
+                    @include tablet {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 15rem;
+                    }
 
                     &--status {
                         &--header {
@@ -226,6 +275,10 @@
                         &--box {
                             width: auto;
                             padding-top:0.25rem;
+
+                            @include tablet {
+                                display: none;
+                            }
 
                             &--text {
                                 @include instock-tag;
@@ -244,6 +297,23 @@
                             padding-top: 0.25rem;
                         }
                     }
+
+                    &--actions-tablet {
+                        display: none;
+
+                        @include tablet {
+                            display: flex; 
+                            justify-content: space-between;
+                            gap: 1rem; 
+                        }
+
+                        &--icon {
+                            @include tablet {
+                                width: 1.5rem;
+                                height: 1.5rem;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -251,6 +321,11 @@
                 padding-top: $mobile-padding;
                 display: flex;
                 justify-content: space-between;
+                width: 100%;
+
+                @include tablet {
+                    display: none;
+                }
             }
         }
     }
