@@ -56,25 +56,25 @@ const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, ware
             <div className="warehouse-details__wrapper-inventory">
                 <div className="warehouse-details__wrapper-inventory__labels-tablet">
                     <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one">
-                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
+                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--inventory">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">INVENTORY ITEM</h4>
-                            <img src={sortDefault}/>
+                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
                         </div>     
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">CATEGORY</h4>
-                            <img src={sortDefault}/>
+                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
                         </div>   
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">STATUS</h4>
-                            <img src={sortDefault}/>
+                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
                         </div> 
                     </div>
                     <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two">
-                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box">
+                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--quantity">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">QUANTITY</h4>
-                            <img src={sortDefault}/>
+                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
                         </div>   
-                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box">
+                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--actions">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, ware
                                 <h4 className="warehouse-details__wrapper-inventory__container__top--one--item--header">INVENTORY ITEM</h4>
                                 <div className="warehouse-details__wrapper-inventory__container__top--one--item--box">
                                     <h3 className="warehouse-details__wrapper-inventory__container__top--one--item--box--name">Television</h3>
-                                    <img src={chevron}/>
+                                    <img className="warehouse-details__wrapper-inventory__container__top--one--item--box--icon" src={chevron}/>
                                 </div>     
                             </div>
                             <div className="warehouse-details__wrapper-inventory__container__top--one--category">

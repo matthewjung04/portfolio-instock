@@ -31,15 +31,16 @@
 }
 
 @mixin instock-tag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: $green;
     background-color: rgba(21, 132, 99, 0.07);
     width: 3.80rem;
     height: 1.5rem;
     padding: 0 0.5rem;
     border-radius: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
 
     @include tablet {
         height: 1.625rem;
