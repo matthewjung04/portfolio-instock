@@ -23,7 +23,9 @@
         }
 
         @include desktop {
+            box-sizing:content-box;
             @include desktop-layout(2rem);
+            padding-right: 3rem;
             max-width: 63.75rem;
         }
 

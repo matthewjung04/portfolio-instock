@@ -19,7 +19,7 @@ h1 {
 
     @include tablet {
       font-size: $h1-size;
-      line-height: $m-h1-line-height;
+      line-height: $h1-line-height;
     }
 }
 

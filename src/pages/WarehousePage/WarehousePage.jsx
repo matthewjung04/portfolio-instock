@@ -26,9 +26,10 @@ const WarehousePage = () => {
     useEffect(() => {
         if(id) {
             fetchWarehouseDetails(id);
+        } else {
+            setWarehouseDetails(null);
         }
     }, [id]);
-
 
     return (
         <>

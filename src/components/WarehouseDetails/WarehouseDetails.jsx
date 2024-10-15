@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import editWhite from "../../assets/icons/edit-white-24px.svg";
 import chevron from "../../assets/icons/chevron_right-24px.svg";
@@ -7,13 +8,18 @@ import sortDefault from "../../assets/icons/sort-24px.svg";
 import './WarehouseDetails.scss';
 
 const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, warehouseCountry, warehouseContactName, warehouseContactPosition, warehouseContactPhone, warehouseContactEmail }) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        console.log("test")
+        navigate("/");
+    }
 
     return (
         <section className="warehouse-details">
             <div className="warehouse-details__container">
                 <div className="warehouse-details__container__top">
                     <div className="warehouse-details__container__top__box">
-                        <img className="warehouse-details__container__top__box--arrow" src={arrowBack}/>
+                        <img className="warehouse-details__container__top__box--arrow" onClick={handleClick} src={arrowBack}/>
                         <h1 className="warehouse-details__container__top__box--title">{warehouseName}</h1>
                     </div>
                     <div className="warehouse-details__container__top__box-edit">
