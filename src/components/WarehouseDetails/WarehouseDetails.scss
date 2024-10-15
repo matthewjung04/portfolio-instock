@@ -79,7 +79,7 @@
 
             &__address {
                 @include tablet {
-                    width: 46%;
+                    width: 43.5%;
                 }
 
                 &__text {
@@ -88,7 +88,8 @@
                     padding-top: 0.25rem;
 
                     @include tablet {
-                        flex-direction: column;                        
+                        flex-direction: column;  
+                        gap: 0;                      
                     }
                 }
             }
@@ -113,13 +114,9 @@
                     }
 
                     &--text {
-                        @include tablet {
-                            padding-top: 0.25rem;
-                        }
+                        padding-top: 0.25rem;                       
                     }
-                }
-                
-                
+                }                 
 
                 &--information {
                     @include tablet {
@@ -127,9 +124,7 @@
                     }
 
                     &--text {
-                        @include tablet {
-                            padding-top: 0.25rem;
-                        }
+                        padding-top: 0.25rem;                        
                     }
 
                 }
@@ -145,7 +140,7 @@
             display: none;
 
             @include tablet {
-                padding: 0.5rem 2rem;
+                padding: 0.6875rem 2rem;
                 background-color: $light-grey;
                 display: flex;
                 justify-content: space-between;
@@ -161,7 +156,6 @@
                     align-items: center;
                     width: calc(33.33% - 2.50px);
                     padding-left: 3rem;
-
 
                     &--inventory {
                         @extend .warehouse-details__wrapper-inventory__labels-tablet__container-one__box;
@@ -213,14 +207,14 @@
                 &--one {
                     display: flex;
                     flex-direction: column;
-                    gap: 0;
+                    gap: 1.25rem;
                     width: 56.5%;
 
                     @include tablet {
                         flex-direction: row;
                         justify-content: space-between;
                         width: 51%;
-                        
+                        gap: 0;
                         align-items: baseline;
                     }
 
