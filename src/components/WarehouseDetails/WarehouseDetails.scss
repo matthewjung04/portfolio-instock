@@ -1,0 +1,376 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../App.scss' as *;
+@use '../../styles/partials/media-query' as *;
+
+.warehouse-details {
+    @include page-layout;
+
+    @include tablet {
+        margin: 0 2rem; 
+    }
+
+    @include desktop {
+        @include desktop-layout(0);
+        max-width: 63.75rem;
+    }
+
+    &__container {
+        @include display-layout(1.5rem 0, 0 1.5rem);
+
+        @include tablet {
+            @include display-layout(2rem 0 1.5rem 0, 0 2rem)
+        }
+
+        @include desktop {
+            padding-bottom: 1.375rem;
+        }
+
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            &__box {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+
+                &--arrow {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
+            }   
+            
+            &__box-edit {
+                
+                @include tablet {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+                &--icon {
+                    background-color: $instock-indigo;
+                    border-radius: 100%;
+                    padding: 0.5rem;
+    
+                    @include tablet {
+                        width: 5.06rem;
+                        height: 2.375rem;
+                        border-radius: 1.25rem;
+                        padding-right: 2.25rem;
+                    }
+                }
+                &--text {
+                    display: none;
+
+                    @include tablet {
+                        display: block;
+                        position: absolute;
+                        color: $white;
+                        right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        border-top: 0.0625rem solid $cloud;
+    
+        &__container {
+            @include display-layout($mobile-padding 0, 0 2.25rem 0 1.5rem);
+
+            @include tablet {
+                @include display-layout($tablet-padding 0, 0 5rem 0 2rem);
+                display: flex;
+            }
+
+            &__address {
+                @include tablet {
+                    width: 43.5%;
+                }
+
+                &__text {
+                    display: flex;
+                    gap: 0.25rem;
+                    padding-top: 0.25rem;
+
+                    @include tablet {
+                        flex-direction: column;  
+                        gap: 0;                      
+                    }
+                }
+            }
+
+            &__bottom {
+                padding-top: 1.5rem;
+                display: flex;
+
+                @include tablet {
+                    padding-top: 0;
+                    gap: 2.5rem;
+                    width: 60%;
+                }
+
+                &--name {
+                    width: 55%;
+
+                    @include tablet {
+                        padding-left: 2rem;
+                        border-left:0.0625rem solid $cloud;
+                        width: 50%;
+                    }
+
+                    &--text {
+                        padding-top: 0.25rem;                       
+                    }
+                }                 
+
+                &--information {
+                    @include tablet {
+                        width: 45%;
+                    }
+
+                    &--text {
+                        padding-top: 0.25rem;                        
+                    }
+
+                }
+                    
+            }
+        }
+    }
+
+    &__wrapper-inventory {
+        border-top: 0.0625rem solid $cloud;
+
+        &__labels-tablet {
+            display: none;
+
+            @include tablet {
+                padding: 0.6875rem 2rem;
+                background-color: $light-grey;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &__container-one {
+                display: flex; 
+                justify-content: space-between;
+                width: 51%;
+
+                @include desktop {
+                    width: 54.5%;
+                }
+
+                &__box {
+                    display: flex;
+                    align-items: center;
+                    width: calc(33.33% - 2.50px);
+                    padding-left: 3rem;
+
+                    &--inventory {
+                        @extend .warehouse-details__wrapper-inventory__labels-tablet__container-one__box;
+                        justify-content: flex-start;
+                        padding-left: 0;
+                    }
+
+                    &--icon {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+                }
+            }
+
+            &__container-two {
+                width: 29%;
+                display: flex;
+                justify-content: space-between;
+
+                &__box {
+                    &--quantity {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        @include tablet {
+            border-top: 0;
+        }
+
+        &__container {
+            @include display-layout($mobile-padding 0, 0 1.5rem);
+
+            @include tablet {
+                @include display-layout(1rem 0 1.5rem 0, 0 2rem)
+            }
+
+            &__top {
+                display: flex;
+                padding-right: 1.25rem;
+
+                @include tablet {
+                    flex-direction: row;
+                    padding-right: 0;
+                    justify-content: space-between;
+                }
+
+                &--one {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.25rem;
+                    width: 56.5%;
+
+                    @include tablet {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 51%;
+                        gap: 0;
+                        align-items: baseline;
+                    }
+
+                    @include desktop {
+                        width: 54.5%;
+                    }
+
+                    &--item {
+                        @include tablet {
+                            width: calc(33.33% - 2.50px);
+                        }
+
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
+                        &--box {
+                            display: flex;
+                            padding-top: 0.25rem;
+                            align-items: center;
+
+
+
+                            &--name {
+                                color: $instock-indigo;
+                            }
+
+                            &--icon {
+                                width: 1.25rem;
+                                height: 1.25rem;
+                            }
+                        }
+                    }
+
+                    &--category {
+                        @include tablet {
+                            width: calc(33.33% - 2.50px);
+                            padding-left: 3rem;
+                        }
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
+                        &--text {
+                            padding-top: 0.25rem;
+                        }
+                    
+                    }
+                        &--status-box--tablet {
+                            display: none;
+
+                            @include tablet {
+                                display: inline-block;
+                                width: calc(33.33% - 2.50px);
+                                padding-left: 3rem;
+                            }
+
+                            &--text {
+                                @include tablet {
+                                    @include instock-tag;
+                                }
+                            }
+                            
+                        }
+                }
+
+                &--two {
+                    width: 7.3rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    @include tablet {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 29%;
+                        gap: 0;
+                    }
+
+                    &--status {
+                        @include tablet {
+                            display: none;
+                        }
+
+                        &--box {
+                            width: auto;
+                            padding-top:0.25rem;
+
+                            @include tablet {
+                                display: none;
+                            }
+
+                            &--text {
+                                @include instock-tag;
+                            }
+                        }
+                    }
+
+                    &--quantity {
+                        &--header {
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+
+                        &--number {
+                            padding-top: 0.25rem;
+                        }
+                    }
+
+                    &--actions-tablet {
+                        display: none;
+
+                        @include tablet {
+                            display: flex; 
+                            justify-content: space-between;
+                            gap: 1rem; 
+                        }
+
+                        &--icon {
+                            @include tablet {
+                                width: 1.5rem;
+                                height: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__bottom {
+                padding-top: $mobile-padding;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+        }
+    }
+}

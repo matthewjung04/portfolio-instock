@@ -7,7 +7,6 @@
   margin: 0rem;
   padding: 0rem;
   box-sizing: border-box;
-  text-align: center;
   font-family: TitilliumWeb-Regular;
   
 }
@@ -25,7 +24,7 @@ h1 {
 
     @include tablet {
       font-size: $h1-size;
-      line-height: $m-h1-line-height;
+      line-height: $h1-line-height;
     }
 }
 
@@ -60,7 +59,7 @@ h4 {
   line-height: $m-h4-line-height;
   font-family: TitilliumWeb-Semibold;
   font-weight: 600;
-  color: $cloud;
+  color: $slate;
 
     @include tablet {
       font-size: $h4-size;

@@ -1,78 +1,51 @@
 import { url } from '../../utils/utils.jsx'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
-import editSVG from '../../assets/icons/edit-24px.svg'
-import deleteSVG from '../../assets/icons/delete_outline-24px.svg'
-import chevron from '../../assets/icons/chevron_right-24px.svg'
-import './WarehousePage.scss'
+import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
+import WarehouseList from '../../components/WarehouseList/WarehouseList.jsx';
 
 function WarehousePage() {
-  let [warehouses, setWarehouses] = useState([]);
+  
+  const { id } = useParams();
+  const [warehouseDetails, setWarehouseDetails] = useState(null);
+
+  const fetchWarehouseDetails = async (warehouseSelectedId) => {
+    try {
+        const { data } = await axios.get(`${url}/api/warehouses/${warehouseSelectedId}`);
+        setWarehouseDetails(data);
+        console.log(data);
+        return setWarehouseDetails;
+    }
+    catch(error) {
+        console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchWarehouses = async () => {
-      await axios
-        .get(`${url}/api/warehouses`)
-        .then((res) => {
-          console.log(res)
-          setWarehouses(warehouses=res.data)
-        })
+    if(id) {
+        fetchWarehouseDetails(id);
+    } else {
+        setWarehouseDetails(null);
     }
-    fetchWarehouses();
-  },[])
-  console.log(warehouses)
+  }, [id]);
+
+
+ 
   return(
-    <section className='warehouses'>
-      <article>
-        <h1>Warehouses</h1>
-        <div>
-          <input type='text' name='search' placeholder='Search...'/>
-          <button type='button'>+ Add New Warehouse</button>
-        </div>
-      </article>
-      
-      <table >
-        {
-          warehouses.map((warehouse) => (
-            <>
-              <tr>
-                <td className='warehouses__rows'>
-                  <article className='warehouses__rows__sub--top'>
-                    <div>
-                      <h4>WAREHOUSE</h4>
-                      <Link className='warehouses__rows__sub--top__links'>
-                        <h3>{warehouse.warehouse_name}</h3>
-                        <img src={chevron}/>
-                      </Link>
-                    </div>
-                    <div>
-                      <h4>CONTACT NAME</h4>
-                      <p2>{warehouse.contact_name}</p2>
-                    </div>
-                  </article>
-                  <article className='warehouses__rows__sub--bottom'>
-                    <div>
-                      <h4>ADDRESS</h4>
-                      <p2>{`${warehouse.address},${warehouse.city},${warehouse.country}`}</p2>
-                    </div>
-                    <div>
-                      <h4>CONTACT INFORMATION</h4>
-                      <p2>{warehouse.contact_phone}</p2>
-                      <p2>{warehouse.contact_email}</p2>
-                    </div>
-                  </article>
-                  <article className='warehouses__rows__sub--buttons'>
-                    <Link><img src={editSVG}/></Link>
-                    <Link><img src={deleteSVG}/></Link>
-                  </article>
-                </td>
-              </tr>
-            </>
-          ))
-        }
-      </table>
-    </section>
+    <>
+      { warehouseDetails ? <WarehouseDetails 
+          warehouseName = {warehouseDetails.warehouse_name}
+          warehouseAddress = {warehouseDetails.address}
+          warehouseCity = {warehouseDetails.city}
+          warehouseCountry = {warehouseDetails.country}
+          warehouseContactName = {warehouseDetails.contact_name}
+          warehouseContactPosition = {warehouseDetails.contact_position}
+          warehouseContactPhone = {warehouseDetails.contact_phone}
+          warehouseContactEmail = {warehouseDetails.contact_email}
+      /> : <WarehouseList />
+      }
+    </>
   )
 }
 
