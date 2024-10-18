@@ -4,10 +4,43 @@
 @use '../../styles/partials/media-query' as *;
 
 .warehouse-details {
+
+    @include page-layout;
+
+    @include tablet {
+        margin: 0 2rem; 
+    }
+
+    @include desktop {
+        @include desktop-layout(0);
+        max-width: 63.75rem;
+    }
+
     
     &__wrapper-inventory {
-        border-top: 0.0625rem solid $cloud;
-        list-style-type: none;
+
+
+
+        &--first-container {
+            border-top: 0.0625rem solid $cloud;
+            list-style-type: none;
+
+            @include tablet {
+                border-top: 0;
+                list-style-type: none;
+            }
+        }
+
+        &--containers {
+            list-style-type: none;
+            border-top: 0.0625rem solid $cloud;
+            
+            @include tablet {
+                border-top: 0.0625rem solid $cloud;
+                list-style-type: none;
+            }
+        }
+
 
         &__labels-tablet {
             display: none;
@@ -22,7 +55,7 @@
             &__container-one {
                 display: flex; 
                 justify-content: space-between;
-                width: 51%;
+                width: 52%;
 
                 @include desktop {
                     width: 54.5%;
@@ -68,7 +101,7 @@
             @include display-layout($mobile-padding 0, 0 1.5rem);
 
             @include tablet {
-                @include display-layout(1rem 0 1.5rem 0, 0 2rem)
+                @include display-layout(1rem 0 1.5rem 0, 0 2rem);
             }
 
             &__top {
@@ -90,7 +123,7 @@
                     @include tablet {
                         flex-direction: row;
                         justify-content: space-between;
-                        width: 51%;
+                        width: 52%;
                         gap: 0;
                         align-items: baseline;
                     }
@@ -101,7 +134,7 @@
 
                     &--item {
                         @include tablet {
-                            width: calc(33.33% - 2.50px);
+                            width: calc(33.33% - 0px);
                         }
 
                         &--header {

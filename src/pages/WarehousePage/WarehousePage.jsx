@@ -46,6 +46,8 @@ const WarehousePage = () => {
         }
     }, [id]);
 
+    console.log(warehouseInventoryList)
+
     return (
         <>
             {warehouseDetails && warehouseInventoryList ? (

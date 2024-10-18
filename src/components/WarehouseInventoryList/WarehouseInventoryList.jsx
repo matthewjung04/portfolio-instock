@@ -8,34 +8,34 @@ import './WarehouseInventoryList.scss'
 const WarehouseInventoryList = ({ warehouseInventory }) => {
     console.log(warehouseInventory)
     return (
-        <div className="warehouse-details__wrapper-inventory">
-            {warehouseInventory.map((inventory) => (
-                <li className="warehouse-details__wrapper-inventory--main-box" key={inventory.id}>
-                    <div className="warehouse-details__wrapper-inventory__labels-tablet">
-                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one">
-                            <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--inventory">
-                                <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">INVENTORY ITEM</h4>
-                                <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
-                            </div>     
-                            <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
-                                <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">CATEGORY</h4>
-                                <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
-                            </div>   
-                            <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
-                                <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">STATUS</h4>
-                                <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
-                            </div> 
-                        </div>
-                        <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two">
-                            <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--quantity">
-                                <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">QUANTITY</h4>
-                                <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
-                            </div>   
-                            <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--actions">
-                                <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
-                            </div>
-                        </div>
+        <section className="warehouse-details">
+            <div className="warehouse-details__wrapper-inventory__labels-tablet">   {/*Div container exclusively for tablet and desktop only*/}
+                <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one">
+                    <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--inventory">
+                        <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">INVENTORY ITEM</h4>
+                        <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>     
+                    <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
+                        <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">CATEGORY</h4>
+                        <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>   
+                    <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
+                        <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">STATUS</h4>
+                        <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div> 
+                </div>
+                <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two">
+                    <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--quantity">
+                        <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">QUANTITY</h4>
+                        <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>   
+                    <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--actions">
+                        <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
                     </div>
+                </div>
+            </div>
+            {warehouseInventory.map((inventory, index) => (
+                <li className={`warehouse-details__wrapper-inventory--${index === 0 ? 'first-container' : 'containers'}`} key={inventory.id}>
                     <div className="warehouse-details__wrapper-inventory__container">
                         <div className="warehouse-details__wrapper-inventory__container__top">
                             <div className="warehouse-details__wrapper-inventory__container__top--one">
@@ -50,8 +50,10 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
                                     <h4 className="warehouse-details__wrapper-inventory__container__top--one--category--header">CATEGORY</h4>
                                     <p className="warehouse-details__wrapper-inventory__container__top--one--category--text p2">{inventory.category}</p>
                                 </div>
-                                <div className="warehouse-details__wrapper-inventory__container__top--one--status-box--tablet">
-                                    <h4 className="warehouse-details__wrapper-inventory__container__top--one--status-box--tablet--text">{inventory.status}</h4>
+                                <div className="warehouse-details__wrapper-inventory__container__top--one--status-box--tablet"> {/*Div container exclusively for tablet and desktop only*/}
+                                    <h4 className={`warehouse-details__wrapper-inventory__container__top--one--status-box--tablet--text${
+                                        inventory.status === "IN STOCK" ? "--instock" : "--outstock"
+                                    }`}>{inventory.status}</h4>
                                 </div>
                             </div>
                             <div className="warehouse-details__wrapper-inventory__container__top--two">
@@ -70,7 +72,7 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
                                     <h4 className="warehouse-details__wrapper-inventory__container__top--two--quantity--header">QTY</h4>
                                     <p className="warehouse-details__wrapper-inventory__container__top--two--quantity--number p2">{inventory.quantity}</p>
                                 </div>
-                                <div className="warehouse-details__wrapper-inventory__container__top--two--actions-tablet"> 
+                                <div className="warehouse-details__wrapper-inventory__container__top--two--actions-tablet"> {/*Div container exclusively for tablet and desktop only*/}
                                     <img className="warehouse-details__wrapper-inventory__container__top--two--actions-tablet--icon" src={deleteIcon}/>
                                     <img className="warehouse-details__wrapper-inventory__container__top--two--actions-tablet--icon" src={editBlue}/>
                                 </div>
@@ -83,7 +85,7 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
                     </div>
                 </li>
             ))}
-        </div>
+        </section>
     )
 }
 
