@@ -58,7 +58,11 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
                                 <div className="warehouse-details__wrapper-inventory__container__top--two--status">
                                     <h4 className="warehouse-details__wrapper-inventory__container__top--two--status--header">STATUS</h4>
                                     <div className="warehouse-details__wrapper-inventory__container__top--two--status--box">
-                                        <h4 className="warehouse-details__wrapper-inventory__container__top--two--status--box--text">{inventory.status}</h4>
+                                        <h4 className={`warehouse-details__wrapper-inventory__container__top--two--status--box--text${
+                                            inventory.status === "IN STOCK" ? "--instock" : "--outstock"
+                                        }`}>
+                                            {inventory.status}
+                                        </h4>
                                     </div>
                                         
                                 </div>
