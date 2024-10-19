@@ -1,5 +1,5 @@
 import "./Header.scss";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Link } from "react-router-dom";
 import InStockLogo from "../../assets/logos/InStock-Logo.svg";
 
@@ -36,4 +36,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Header; 

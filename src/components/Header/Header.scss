@@ -23,7 +23,9 @@
         }
 
         @include desktop {
+            box-sizing:content-box;
             @include desktop-layout(2rem);
+            padding-right: 3rem;
             max-width: 63.75rem;
         }
 
@@ -41,12 +43,19 @@
 
             @include tablet {
                 padding: 0;
+                gap: 1.5rem;
             }
 
             &--box {
                 display: flex;
                 height: 2.25rem;
                 width: 50%;
+
+                @include tablet {
+                    justify-content: flex-end;
+                    height: 2.375rem;
+                    width: 3.625rem;
+                }
 
                 :hover {
                     color: $white;
@@ -58,11 +67,10 @@
                     background-color: $instock-black;
                     border: 0.0625rem solid $instock-black;
                     border-radius: 1.25rem;
-                }
 
-                @include tablet {
-                    height: 2.375rem;
-                    width: 6.6875rem;
+                    @include tablet {
+                        width: 6.6875rem;
+                    }
                 }
                 
                 &--link {
@@ -72,9 +80,17 @@
                     cursor: pointer;
                     text-decoration: none;
 
+                    @include tablet {
+                        margin: auto 0;
+                    }
+
                     &--active {
                         @extend .header__container__nav--box--link;
                         color: $white;
+
+                        @include tablet {
+                            margin: auto;
+                        }
                     }
                 }
             }
