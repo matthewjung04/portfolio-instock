@@ -8,12 +8,12 @@ import chevron from '../../assets/icons/chevron_right-24px.svg'
 import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse.jsx'
 import './WarehouseList.scss'
 
-function WarehouseList() {
+function WarehouseList({ add, edit}) {
   let [warehouses, setWarehouses] = useState([]);
   let [hasDelete, setHasDelete] = useState(false);
 
   const deleteHandler = () => {
-    setHasDelete(hasDelete=true)
+    
   }
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function WarehouseList() {
               name='search' 
               placeholder='Search...'
             />
-            <button className='warehouses__header__nav__add' type='button'>
+            <button className='warehouses__header__nav__add' type='button' onClick={add}>
               + Add New Warehouse
             </button>
           </div>
@@ -76,8 +76,8 @@ function WarehouseList() {
                       </div>
                     </article>
                     <article className='warehouses__list__rows__buttons'>
-                      <button onClick={deleteHandler}><img src={deleteSVG}/></button>
-                      <button><img src={editSVG}/></button>
+                      <button type='button' onClick={deleteHandler}><img src={deleteSVG}/></button>
+                      <button type='button' onClick={edit}><img src={editSVG}/></button>
                     </article>
                   </td>
                 </tr>

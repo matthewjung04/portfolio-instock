@@ -6,7 +6,6 @@ import './WarehouseInventoryList.scss'
 
 
 const WarehouseInventoryList = ({ warehouseInventory }) => {
-    console.log(warehouseInventory)
     return (
         <section className="warehouse-details">
             <div className="warehouse-details__wrapper-inventory__labels-tablet">   {/*Div container exclusively for tablet and desktop only*/}

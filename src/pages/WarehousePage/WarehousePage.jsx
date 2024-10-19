@@ -5,12 +5,16 @@ import './WarehousePage.scss'
 import WarehouseList from '../../components/WarehouseList/WarehouseList'
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
 import WarehouseInventoryList from '../../components/WarehouseInventoryList/WarehouseInventoryList';
+import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
+import EditWarehouse from '../../components/EditWarehouse/EditWarehouse';
 
 const WarehousePage = () => {
 
     const { id } = useParams();
     const [warehouseDetails, setWarehouseDetails] = useState(null);
     const [warehouseInventoryList, setWarehouseInventoryList] = useState(null);
+    const [hasAdded, setHasAdded] = useState(false);
+    const [hasEdited, setHasEdited] = useState(false);
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
@@ -46,6 +50,14 @@ const WarehousePage = () => {
         }
     }, [id]);
 
+    const addHandler = () => {
+        setHasAdded(true)
+    }
+
+    const editHandler = () => {
+        setHasEdited(true)
+    }
+    console.log(hasAdded)
     return (
         <>
             {warehouseDetails && warehouseInventoryList ? (
@@ -64,8 +76,19 @@ const WarehousePage = () => {
                         warehouseInventory = {warehouseInventoryList}
                     /> 
                 </>
+            ) : hasAdded ? (
+                <>
+                    <AddWarehouse />
+                </>
+            ) : hasEdited ? (
+                <>
+                    <EditWarehouse />
+                </>
             ) : (
-                    <WarehouseList />
+                    <WarehouseList
+                        add = {addHandler}
+                        edit = {editHandler}
+                    />
             )}
         </>
     )
