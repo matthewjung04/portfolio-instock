@@ -1,4 +1,4 @@
-@use "./fonts/" as *;
+@use "./fonts" as *;
 
 $instock-black: #13182c;
 $instock-indigo: #2e66e5;
@@ -14,7 +14,7 @@ $tablet: 768px;
 $desktop: 1280px;
 
 // Font Family
-$primary-font: "TitilliumWeb-Black";
+$primary-font: "TitilliumWeb-Regular";
 $bold-font: "TitilliumWeb-Semibold";
 
 $font-weight-regular: 400;
