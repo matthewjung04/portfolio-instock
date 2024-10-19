@@ -1,0 +1,240 @@
+@font-face {
+  font-family: "TitilliumWeb-Regular";
+  src: url(../../assets/fonts/Titillium_Web/TitilliumWeb-Black.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TitilliumWeb-Semibold";
+  src: url(../../assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+body {
+  background-color: #f7f8f9;
+}
+
+.warehouse-form1 {
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  border-radius: 0.125rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  margin-top: -4.7rem;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  .warehouse-form1 {
+    margin-top: -4.7rem;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.warehouse-form1__add {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__add {
+    border-bottom: 1px solid #bdc5d5;
+    justify-content: flex-start;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+.warehouse-form1__icon {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__icon {
+    padding-right: 0.5rem;
+  }
+}
+.warehouse-form1__title {
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-family: "TitilliumWeb-Semibold";
+  color: #13182c;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__title {
+    font-size: 2rem;
+  }
+}
+.warehouse-form1__subtitle {
+  width: 49%;
+  font-size: 0.8125rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__subtitle {
+    width: 67%;
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .warehouse-form1__subtitle {
+    width: 38%;
+  }
+}
+.warehouse-form1__label-text {
+  font-family: "TitilliumWeb-Semibold";
+  padding-right: 50%;
+  display: flex;
+  font-size: 0.875rem;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__label-text {
+    padding: 0;
+  }
+}
+.warehouse-form1__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__section {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.warehouse-form1__details, .warehouse-form1__contact-details {
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #bdc5d5;
+  padding-top: 1rem;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__details, .warehouse-form1__contact-details {
+    width: 50%;
+    border-top: none;
+  }
+}
+.warehouse-form1__details {
+  border-right: 1px solid #bdc5d5;
+  padding-right: 1.5rem;
+  padding-left: 1rem;
+}
+.warehouse-form1__contact-details {
+  padding-right: 1rem;
+}
+.warehouse-form1__label {
+  font-size: 0.6875rem;
+  line-height: 1.625rem;
+  font-family: "TitilliumWeb-Regular";
+  color: #13182c;
+  margin-bottom: 0.5rem;
+  font-family: "TitilliumWeb-Semibold";
+}
+@media (min-width: 768px) {
+  .warehouse-form1__label {
+    padding: 0;
+  }
+}
+.warehouse-form1__input {
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.75rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  color: #232940;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__input {
+    width: 100%;
+    border-radius: 1.3rem;
+  }
+}
+.warehouse-form1__input::-moz-placeholder {
+  font-family: "TitilliumWeb-Semibold";
+  font-weight: 100;
+  float: left;
+}
+.warehouse-form1__input::placeholder {
+  font-family: "TitilliumWeb-Semibold";
+  font-weight: 100;
+  float: left;
+}
+.warehouse-form1__input:focus {
+  border-color: #2e66e5;
+  outline: none;
+}
+.warehouse-form1__error {
+  color: #c94515;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+  border-color: #c94515;
+}
+.warehouse-form1__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  background-color: #f7f8f9;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__actions {
+    justify-content: flex-end;
+    margin-top: 0;
+    height: 3.785rem;
+  }
+}
+.warehouse-form1__button {
+  height: 2.375rem;
+  font-size: 0.8125rem;
+  border: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-family: "TitilliumWeb-Semibold";
+}
+@media (min-width: 768px) {
+  .warehouse-form1__button {
+    width: 20%;
+  }
+}
+.warehouse-form1__button--cancel {
+  background-color: #ffffff;
+  color: #232940;
+  flex: 1;
+  margin-right: 1rem;
+  border: 1px solid #bdc5d5;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__button--cancel {
+    flex: none;
+    width: 10%;
+  }
+}
+.warehouse-form1__button--cancel:hover {
+  color: #2e66e5;
+  border-color: #2e66e5;
+}
+.warehouse-form1__button--submit {
+  background-color: #2e66e5;
+  color: #ffffff;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .warehouse-form1__button--submit {
+    flex: none;
+    margin-right: 1rem;
+  }
+}
+.warehouse-form1__button--submit:hover {
+  background-color: #13182c;
+  color: #ffffff;
+}
+.warehouse-form1__button__success {
+  color: #158463;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+}/*# sourceMappingURL=AddWarehouse.css.map */
