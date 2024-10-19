@@ -1,5 +1,26 @@
 @use '../../styles/partials/variables' as *;
 
+img {
+  vertical-align: middle;
+  padding-left: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: $instock-indigo;
+  font-size: $h3-size;
+  line-height: $h3-line-height;
+}
+
+h4 {
+  padding-bottom: 4px;;
+}
+
+#text {
+  font-size: 12px;
+  line-height: $p2-line-height;
+}
+
 .warehouses {
   background-color: $white;
 
@@ -8,4 +29,76 @@
   box-shadow: 1px 1px 4px $cloud;
 
   margin-top: -50px;
+
+  &__header {
+    padding: 32px 16px 16px;
+
+    &__nav {
+      padding: 16px 0;
+      padding-bottom: 0;
+
+      &__search {
+        width: 100%;
+        height: 36px;
+
+        padding-left: 16px;
+        margin-bottom: 16px;
+        border: 1px solid $cloud;
+        border-radius: 20px;
+      }
+
+      &__add {
+        background-color: $instock-indigo;
+
+        color: $white;
+        font-size: $h3-size;
+        line-height: $h3-line-height;
+
+        width: 100%;
+        height: 36px;
+
+        border: none;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &__list {
+    
+    &__rows {
+      padding: 16px;
+      border-top: 1px solid $cloud;
+
+      &__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        padding-bottom: 16px;
+
+        &__item {
+          width: 120px;
+        }
+      }
+
+      &__bottom {
+        @extend .warehouses__list__rows__top;
+
+        &__address {
+          width: 110px;
+        }
+
+        &__contact {
+          padding-left: 10px;;
+          width: 130px;
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
 }

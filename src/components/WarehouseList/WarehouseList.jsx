@@ -24,55 +24,62 @@ function WarehouseList() {
 
   return (
     <section className='warehouses'>
-    <article>
-      <h1>Warehouses</h1>
-      <div>
-        <input type='text' name='search' placeholder='Search...'/>
-        <button type='button'>+ Add New Warehouse</button>
-      </div>
-    </article>
-    
-    <table >
-      {
-        warehouses.map((warehouse) => (
-          <>
-            <tr>
-              <td className='warehouses__rows'>
-                <article className='warehouses__rows__sub--top'>
-                  <div>
-                    <h4>WAREHOUSE</h4>
-                    <Link to={`/warehouses/${warehouse.id}`} className='warehouses__rows__sub--top__links'>
-                      <h3>{warehouse.warehouse_name}</h3>
-                      <img src={chevron}/>
-                    </Link>
-                  </div>
-                  <div>
-                    <h4>CONTACT NAME</h4>
-                    <p2>{warehouse.contact_name}</p2>
-                  </div>
-                </article>
-                <article className='warehouses__rows__sub--bottom'>
-                  <div>
-                    <h4>ADDRESS</h4>
-                    <p2>{`${warehouse.address},${warehouse.city},${warehouse.country}`}</p2>
-                  </div>
-                  <div>
-                    <h4>CONTACT INFORMATION</h4>
-                    <p2>{warehouse.contact_phone}</p2>
-                    <p2>{warehouse.contact_email}</p2>
-                  </div>
-                </article>
-                <article className='warehouses__rows__sub--buttons'>
-                  <Link><img src={editSVG}/></Link>
-                  <Link><img src={deleteSVG}/></Link>
-                </article>
-              </td>
-            </tr>
-          </>
-        ))
-      }
-    </table>
-  </section>
+      <article className='warehouses__header'>
+        <h1>Warehouses</h1>
+        <div className='warehouses__header__nav'>
+          <input
+            className='warehouses__header__nav__search'
+            type='text'
+            name='search' 
+            placeholder='Search...'
+          />
+          <button className='warehouses__header__nav__add' type='button'>
+            + Add New Warehouse
+          </button>
+        </div>
+      </article>
+      
+      <table className='warehouses__list'>
+        {
+          warehouses.map((warehouse) => (
+            <>
+              <tr id={warehouse.id}>
+                <td className='warehouses__list__rows'>
+                  <article className='warehouses__list__rows__top'>
+                    <div>
+                      <h4>WAREHOUSE</h4>
+                      <Link to={`/warehouses/${warehouse.id}`} id='link'>
+                      {warehouse.warehouse_name}
+                        <img src={chevron}/>
+                      </Link>
+                    </div>
+                    <div className='warehouses__list__rows__top__item'>
+                      <h4>CONTACT NAME</h4>
+                      <p id='text'>{warehouse.contact_name}</p>
+                    </div>
+                  </article>
+                  <article className='warehouses__list__rows__bottom'>
+                    <div className='warehouses__list__rows__bottom__address'>
+                      <h4>ADDRESS</h4>
+                      <p id='text'>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+                    </div>
+                    <div className='warehouses__list__rows__bottom__contact'>
+                      <h4>CONTACT INFORMATION</h4>
+                      <p id='text'>{warehouse.contact_phone}</p>
+                      <p id='text'>{warehouse.contact_email}</p>
+                    </div>
+                  </article>
+                  <article className='warehouses__list__rows__buttons'>
+                    <Link><img src={deleteSVG}/></Link>
+                    <Link><img src={editSVG}/></Link>
+                  </article>
+                </td>
+              </tr>
+            </>
+          ))
+        }
+      </table>
+    </section>
   )
 
 }
