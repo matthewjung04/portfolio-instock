@@ -12,7 +12,7 @@ const WarehousePage = () => {
     const [warehouseDetails, setWarehouseDetails] = useState(null);
     const [warehouseInventoryList, setWarehouseInventoryList] = useState(null);
 
-    const baseUrl = import.meta.env.VITE_API_URL;
+    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
     const fetchWarehouseDetails = async (warehouseSelectedId) => {
         try {
