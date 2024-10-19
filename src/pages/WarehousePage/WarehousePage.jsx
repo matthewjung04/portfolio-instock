@@ -49,7 +49,7 @@ const WarehousePage = () => {
     console.log(warehouseInventoryList)
 
     return (
-        <>
+        <main className="warehouse-page">
             {warehouseDetails && warehouseInventoryList ? (
                 <>
                     <WarehouseDetails 
@@ -69,7 +69,7 @@ const WarehousePage = () => {
             ) : (
                     "loading..."
             )}
-        </>
+        </main>
     )
 }
 
