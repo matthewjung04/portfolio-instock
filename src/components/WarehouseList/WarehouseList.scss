@@ -12,6 +12,12 @@ a {
   line-height: $h3-line-height;
 }
 
+button {
+  background-color: $white;
+  border: none;
+  cursor: pointer;
+}
+
 h4 {
   padding-bottom: 4px;;
 }
