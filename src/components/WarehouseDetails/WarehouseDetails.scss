@@ -13,6 +13,7 @@
     @include desktop {
         @include desktop-layout(0);
         max-width: 63.75rem;
+        box-sizing: content-box;
     }
 
     &__container {
@@ -24,6 +25,10 @@
 
         @include desktop {
             padding-bottom: 1.375rem;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            margin: 0;
+            box-sizing:content-box;
         }
 
         &__top {
@@ -84,6 +89,10 @@
             @include tablet {
                 @include display-layout($tablet-padding 0, 0 5rem 0 2rem);
                 display: flex;
+            }
+
+            @include desktop {
+                margin-left: 2.5rem;
             }
 
             &__address {

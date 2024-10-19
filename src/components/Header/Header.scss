@@ -25,8 +25,9 @@
         @include desktop {
             box-sizing:content-box;
             @include desktop-layout(2rem);
-            padding-right: 3rem;
             max-width: 63.75rem;
+            justify-content: flex-start;
+            gap: 67.25%;
         }
 
         &__logo__link {

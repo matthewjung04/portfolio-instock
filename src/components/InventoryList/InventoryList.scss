@@ -1,0 +1,18 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../App.scss' as *;
+@use '../../styles/partials/media-query' as *;
+
+.inventory-list {
+    @include page-layout;
+
+    @include tablet {
+        margin: 0 2rem;
+    }
+
+    @include desktop {
+        @include desktop-layout(0);
+        max-width: 63.75rem;
+    }
+
+}

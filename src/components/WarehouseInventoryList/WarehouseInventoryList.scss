@@ -19,8 +19,6 @@
     
     &__wrapper-inventory {
 
-
-
         &--first-container {
             border-top: 0.0625rem solid $cloud;
             list-style-type: none;
@@ -50,6 +48,11 @@
                 background-color: $light-grey;
                 display: flex;
                 justify-content: space-between;
+            }
+
+            @include desktop {
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
             }
 
             &__container-one {
@@ -102,6 +105,11 @@
 
             @include tablet {
                 @include display-layout(1rem 0 1.5rem 0, 0 2rem);
+            }
+
+            @include desktop {
+                margin-left: 2.5rem;
+                margin-right: 2.5rem;
             }
 
             &__top {
