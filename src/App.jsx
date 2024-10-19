@@ -1,17 +1,10 @@
-
-import InventoryPage from './pages/InventoryPage/InventoryPage';
-import Footer from './components/Footer/Footer'
-import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
-import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
-// import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
-// import AddInventory from './components/AddInventory/AddInventory';
-// import InventoryDetails from './components/InventoryDetails/InventoryDetails';
-// import EditInventory from './components/EditInventory/EditInventory';
-
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import Footer from './components/Footer/Footer'
+import Header from "./components/Header/Header";
 import "./App.scss";
 
 function App() {
