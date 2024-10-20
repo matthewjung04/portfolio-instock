@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './WarehousePage.scss'
 import WarehouseList from '../../components/WarehouseList/WarehouseList'
@@ -17,6 +17,8 @@ const WarehousePage = () => {
     const [hasEdited, setHasEdited] = useState(false);
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
+    const navigate = useNavigate();
 
     const fetchWarehouseDetails = async (warehouseSelectedId) => {
         try {
@@ -51,13 +53,14 @@ const WarehousePage = () => {
     }, [id]);
 
     const addHandler = () => {
-        setHasAdded(true)
+        navigate("/warehouses/add")
     }
 
-    const editHandler = () => {
-        setHasEdited(true)
+    const editHandler = (e) => {
+        const editID = e.target.parentElement.id;
+        navigate(`/warehouses/${editID}/edit`);
     }
-    console.log(hasAdded)
+    
     return (
         <>
             {warehouseDetails && warehouseInventoryList ? (
@@ -75,14 +78,6 @@ const WarehousePage = () => {
                     <WarehouseInventoryList
                         warehouseInventory = {warehouseInventoryList}
                     /> 
-                </>
-            ) : hasAdded ? (
-                <>
-                    <AddWarehouse />
-                </>
-            ) : hasEdited ? (
-                <>
-                    <EditWarehouse />
                 </>
             ) : (
                     <WarehouseList
