@@ -6,7 +6,9 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 import './InventoryList.scss'
 
 
-const InventoryList = () => {
+const InventoryList = ({ inventoryDetails }) => {
+    console.log(inventoryDetails);
+
     return (
         <section className="inventory-list">        
             <div className="inventory-list__container">
@@ -16,15 +18,94 @@ const InventoryList = () => {
                     </div>
                     <div className="inventory-list__container__top__box-functionality">
                         <div className="inventory-list__container__top__box-functionality--search-bar">
-                            <input className="inventory-list__container__top__box-functionality--search-bar--input" type="text" name="search" placeholder="Search..."/>
                             <img className="inventory-list__container__top__box-functionality--search-bar--icon" src={searchIcon}/>
+                            <input className="inventory-list__container__top__box-functionality--search-bar--input p2" type="text" name="search" placeholder="Search..."/>
                         </div>
-                        <div className="inventory-list__container__top__box-functionality--bottom">
-                            <button>+ Add New Item</button>
+                        <div className="inventory-list__container__top__box-functionality__bottom">
+                            <button className="inventory-list__container__top__box-functionality__bottom--add-item">+ Add New Item</button>
                         </div>
                     </div>
                 </div> 
             </div>
+            <div className="inventory-list__wrapper-inventory__labels-tablet">   {/*Div container exclusively for tablet and desktop only*/}
+                <div className="inventory-list__wrapper-inventory__labels-tablet__container-one">
+                    <div className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--inventory">
+                        <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--header">INVENTORY ITEM</h4>
+                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>     
+                    <div className="inventory-list__wrapper-inventory__labels-tablet__container-one__box">
+                        <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--header">CATEGORY</h4>
+                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>   
+                    <div className="inventory-list__wrapper-inventory__labels-tablet__container-one__box">
+                        <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--header">STATUS</h4>
+                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div> 
+                </div>
+                <div className="inventory-list__wrapper-inventory__labels-tablet__container-two">
+                    <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--quantity">
+                        <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">QTY</h4>
+                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>   
+                    <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--actions">
+                        <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
+                    </div>
+                </div>
+            </div>
+            {inventoryDetails.map((inventoryList, index) => (
+                <li className={`inventory-list__wrapper-inventory--${index === 0 ? 'first-container' : 'containers'}`} key={inventoryList.id}>
+                    <div className="inventory-list__wrapper-inventory__container">
+                        <div className="inventory-list__wrapper-inventory__container__top">
+                            <div className="inventory-list__wrapper-inventory__container__top--one">
+                                <div className="inventory-list__wrapper-inventory__container__top--one--item">
+                                    <h4 className="inventory-list__wrapper-inventory__container__top--one--item--header">INVENTORY ITEM</h4>
+                                    <div className="inventory-list__wrapper-inventory__container__top--one--item--box">
+                                        <h3 className="inventory-list__wrapper-inventory__container__top--one--item--box--name">{inventoryList.itemName}</h3>
+                                        <img className="inventory-list__wrapper-inventory__container__top--one--item--box--icon" src={chevron}/>
+                                    </div>     
+                                </div>
+                                <div className="inventory-list__wrapper-inventory__container__top--one--category">
+                                    <h4 className="inventory-list__wrapper-inventory__container__top--one--category--header">CATEGORY</h4>
+                                    <p className="inventory-list__wrapper-inventory__container__top--one--category--text p2">{inventoryList.category}</p>
+                                </div>
+                                <div className="inventory-list__wrapper-inventory__container__top--one--status-box--tablet"> {/*Div container exclusively for tablet and desktop only*/}
+                                    <h4 className={`inventory-list__wrapper-inventory__container__top--one--status-box--tablet--text${
+                                        inventoryList.status === "IN STOCK" ? "--instock" : "--outstock"
+                                    }`}>{inventoryList.status}</h4>
+                                </div>
+                            </div>
+                            <div className="inventory-list__wrapper-inventory__container__top--two">
+                                <div className="inventory-list__wrapper-inventory__container__top--two--status">
+                                    <h4 className="inventory-list__wrapper-inventory__container__top--two--status--header">STATUS</h4>
+                                    <div className="inventory-list__wrapper-inventory__container__top--two--status--box">
+                                        <h4 className={`inventory-list__wrapper-inventory__container__top--two--status--box--text${
+                                            inventoryList.status === "IN STOCK" ? "--instock" : "--outstock"
+                                        }`}>
+                                            {inventoryList.status}
+                                        </h4>
+                                    </div>       
+                                </div>
+                                <div className="inventory-list__wrapper-inventory__container__top--two--quantity">
+                                    <h4 className="inventory-list__wrapper-inventory__container__top--two--quantity--header">QTY</h4>
+                                    <p className="inventory-list__wrapper-inventory__container__top--two--quantity--number p2">{inventoryList.quantity}</p>
+                                </div>
+                                <div className="inventory-list__wrapper-inventory__container__top--two--actions-tablet"> {/*Div container exclusively for tablet and desktop only*/}
+                                    <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={deleteIcon}/>
+                                    <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={editBlue}/>
+                                </div>
+                                <div className="inventory-list__wrapper-inventory__container__top--two--warehouse">
+                                    <h4 className="inventory-list__wrapper-inventory__container__top--two--warehouse--header">WAREHOUSE</h4>
+                                    <p className="inventory-list__wrapper-inventory__container__top--two--warehouse--name p2">{inventoryList.warehouseName}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="inventory-list__wrapper-inventory__container__bottom">
+                            <img src={deleteIcon}/>
+                            <img src={editBlue}/>
+                        </div>
+                    </div>
+                </li>
+            ))}
         </section>
     )
 };

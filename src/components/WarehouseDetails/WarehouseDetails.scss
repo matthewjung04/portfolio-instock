@@ -13,14 +13,13 @@
     @include desktop {
         @include desktop-layout(0);
         max-width: 63.75rem;
-        box-sizing: content-box;
     }
 
     &__container {
         @include display-layout(1.5rem 0, 0 1.5rem);
 
         @include tablet {
-            @include display-layout(2rem 0 1.5rem 0, 0 2rem)
+            @include display-layout(2rem 0 1.35rem 0, 0 2rem)
         }
 
         @include desktop {
@@ -28,7 +27,6 @@
             padding-left: 2.5rem;
             padding-right: 2.5rem;
             margin: 0;
-            box-sizing:content-box;
         }
 
         &__top {
