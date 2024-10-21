@@ -46,6 +46,10 @@ const InventoryList = ({ inventoryDetails }) => {
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--quantity">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">QTY</h4>
                         <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                    </div>
+                    <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--warehouse">
+                        <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">WAREHOUSE</h4>
+                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
                     </div>   
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--actions">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
@@ -89,13 +93,13 @@ const InventoryList = ({ inventoryDetails }) => {
                                     <h4 className="inventory-list__wrapper-inventory__container__top--two--quantity--header">QTY</h4>
                                     <p className="inventory-list__wrapper-inventory__container__top--two--quantity--number p2">{inventoryList.quantity}</p>
                                 </div>
-                                <div className="inventory-list__wrapper-inventory__container__top--two--actions-tablet"> {/*Div container exclusively for tablet and desktop only*/}
-                                    <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={deleteIcon}/>
-                                    <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={editBlue}/>
-                                </div>
                                 <div className="inventory-list__wrapper-inventory__container__top--two--warehouse">
                                     <h4 className="inventory-list__wrapper-inventory__container__top--two--warehouse--header">WAREHOUSE</h4>
                                     <p className="inventory-list__wrapper-inventory__container__top--two--warehouse--name p2">{inventoryList.warehouseName}</p>
+                                </div>
+                                <div className="inventory-list__wrapper-inventory__container__top--two--actions-tablet"> {/*Div container exclusively for tablet and desktop only*/}
+                                    <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={deleteIcon}/>
+                                    <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={editBlue}/>
                                 </div>
                             </div>
                         </div>

@@ -27,7 +27,7 @@
             @include desktop-layout(2rem);
             max-width: 63.75rem;
             justify-content: flex-start;
-            gap: 67.25%;
+            gap: 66.25%;
         }
 
         &__logo__link {
@@ -47,6 +47,10 @@
                 gap: 1.5rem;
             }
 
+            @include desktop {
+                gap:1.25rem;
+            }
+
             &--box {
                 display: flex;
                 height: 2.25rem;
@@ -56,6 +60,11 @@
                     justify-content: flex-end;
                     height: 2.375rem;
                     width: 3.625rem;
+                }
+
+                @include desktop {
+                    width: 5.625rem;
+                    justify-content: center;
                 }
 
                 :hover {
@@ -83,6 +92,10 @@
 
                     @include tablet {
                         margin: auto 0;
+                    }
+
+                    @include desktop {
+                        text-align: center;
                     }
 
                     &--active {

@@ -79,6 +79,11 @@
     &::placeholder {
         color: $slate;
     }
+
+    @include tablet {
+        height: 2.375rem;
+        //width: 11.57rem;
+    }
 }
 
 @mixin bottom {
@@ -90,5 +95,10 @@
     border: 0;
     color: $white;
     font-size: 0.8125rem;
-    line-height: 1.25rem;     
+    line-height: 1.25rem;
+    
+    @include tablet {
+        height: 2.375rem;
+        width: 8rem;
+    }
 }
