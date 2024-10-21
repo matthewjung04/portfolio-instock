@@ -148,20 +148,31 @@
             }
 
             &__container-two {
-                width: 47%;
+                width: 48%;
                 display: flex;
                 justify-content: space-between;
+                gap: 0;
 
                 &__box {
                     &--quantity {
                         display: flex;
                         align-items: center;
                         width: calc(33.33% - 2.50px);
-                        padding-left: 3rem;
+                        padding-left: 3.5rem;
                     }
                     
                     &--warehouse {
                         display: flex;
+                        align-items: center;
+                        width: calc(33.33% - 2.50px);
+                        padding-left: 1rem;
+
+                    }
+
+                    &--actions{
+                        width: calc(33.33% - 2.50px);
+                        display: flex;
+                        justify-content: flex-end;
                     }
                 }
             }
@@ -284,7 +295,7 @@
                     @include tablet {
                         flex-direction: row;
                         justify-content: space-between;
-                        width: 29%;
+                        width: 48%;
                         gap: 0;
                     }
 
@@ -314,6 +325,12 @@
                     }
 
                     &--quantity {
+                        @include tablet {
+                            width: calc(33.33% - 2.50px);
+                            display: flex;
+                            padding-left: 3.5rem;
+                        }
+
                         &--header {
                             @include tablet {
                                 display: none;
@@ -326,6 +343,13 @@
                     }
 
                     &--warehouse {
+                        @include tablet {
+                            width: calc(33.33% - 2.50px);
+                            display: flex;
+                            align-self: center;
+                            padding-left: 1rem;
+                        }
+
                         &--header {
                             @include tablet {
                                 display: none;
@@ -338,8 +362,9 @@
 
                         @include tablet {
                             display: flex; 
-                            justify-content: space-between;
+                            justify-content: flex-end;
                             gap: 1rem; 
+                            width: calc(33.33% - 2.50px);
                         }
 
                         &--icon {
