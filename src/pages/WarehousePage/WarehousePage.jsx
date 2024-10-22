@@ -28,7 +28,6 @@ const WarehousePage = () => {
         try {
             const { data } = await axios.get(baseUrl + "/api/warehouses/" + warehouseSelectedId + "/inventories");
             setWarehouseInventoryList(data);
-            console.log(data);
             return setWarehouseInventoryList;
         }
         catch(error) {
@@ -46,10 +45,8 @@ const WarehousePage = () => {
         }
     }, [id]);
 
-    console.log(warehouseInventoryList)
-
     return (
-        <>
+        <main className="warehouse-page">
             {warehouseDetails && warehouseInventoryList ? (
                 <>
                     <WarehouseDetails 
@@ -69,7 +66,7 @@ const WarehousePage = () => {
             ) : (
                     "loading..."
             )}
-        </>
+        </main>
     )
 }
 
