@@ -5,6 +5,7 @@ import axios from 'axios'
 import editSVG from '../../assets/icons/edit-24px.svg'
 import deleteSVG from '../../assets/icons/delete_outline-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
+import sort from '../../assets/icons/sort-24px.svg'
 import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse.jsx'
 import './WarehouseList.scss'
 
@@ -52,39 +53,50 @@ function WarehouseList({ add, edit}) {
         </article>
       
         <table className='warehouses__list'>
+          <thead>
+            <tr>
+              <th>WAREHOUSE<img id="sort" src={sort}/></th>
+              <th>ADDRESS<img id="sort" src={sort}/></th>
+              <th>CONTACT NAME<img id="sort" src={sort}/></th>
+              <th>CONTACT INFORMATION<img id="sort" src={sort}/></th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
           {
             warehouses.map((warehouse) => (
               <tbody key={warehouse.id}>
                 <tr id={warehouse.id}>
-                  <td className='warehouses__list__rows'>
-                    <article className='warehouses__list__rows__top'>
-                      <div>
-                        <h4>WAREHOUSE</h4>
-                        <Link to={`/warehouses/${warehouse.id}`} id='link'>
-                        {warehouse.warehouse_name}
-                          <img src={chevron}/>
-                        </Link>
-                      </div>
-                      <div className='warehouses__list__rows__top__item'>
-                        <h4>CONTACT NAME</h4>
-                        <p id='text'>{warehouse.contact_name}</p>
-                      </div>
-                    </article>
-                    <article className='warehouses__list__rows__bottom'>
-                      <div className='warehouses__list__rows__bottom__address'>
-                        <h4>ADDRESS</h4>
-                        <p id='text'>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
-                      </div>
-                      <div className='warehouses__list__rows__bottom__contact'>
-                        <h4>CONTACT INFORMATION</h4>
-                        <p id='text'>{warehouse.contact_phone}</p>
-                        <p id='text'>{warehouse.contact_email}</p>
-                      </div>
-                    </article>
-                    <article className='warehouses__list__rows__buttons'>
+                  <td id={warehouse.id} className='table-rows'>
+                    <div id={warehouse.id} className='warehouses__list__rows'>
+                      <article className='warehouses__list__rows__top'>
+                        <div>
+                          <h4>WAREHOUSE</h4>
+                          <Link to={`/warehouses/${warehouse.id}`} id='link'>
+                          {warehouse.warehouse_name}
+                            <img src={chevron}/>
+                          </Link>
+                        </div>
+                        <div className='warehouses__list__rows__top__item'>
+                          <h4>ADDRESS</h4>
+                          <p id='text'>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+                        </div>
+                      </article>
+                      <article className='warehouses__list__rows__bottom'>
+                        <div className='warehouses__list__rows__bottom__address'>
+                          <h4>CONTACT NAME</h4>
+                          <p id='text'>{warehouse.contact_name}</p>
+                        </div>
+                        <div className='warehouses__list__rows__bottom__contact'>
+                          <h4>CONTACT INFORMATION</h4>
+                          <p id='text'>{warehouse.contact_phone}</p>
+                          <p id='text'>{warehouse.contact_email}</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div className='warehouses__list__rows__buttons'>
                       <button id={warehouse.warehouse_name} type='button' onClick={deleteHandler}><img src={deleteSVG}/></button>
                       <button id={warehouse.id} type='button' onClick={edit}><img src={editSVG}/></button>
-                    </article>
+                    </div>
                   </td>
                 </tr>
               </tbody>

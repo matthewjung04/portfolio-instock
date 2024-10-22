@@ -19,8 +19,6 @@
     
     &__wrapper-inventory {
 
-
-
         &--first-container {
             border-top: 0.0625rem solid $cloud;
             list-style-type: none;
@@ -57,6 +55,11 @@
                 justify-content: space-between;
                 width: 52%;
 
+                @include tablet {
+                    display: flex;
+                    width: 350px;
+                }
+
                 @include desktop {
                     width: 54.5%;
                 }
@@ -66,6 +69,10 @@
                     align-items: center;
                     width: calc(33.33% - 2.50px);
                     padding-left: 3rem;
+
+                    &--header {
+                        display: flex;
+                    }
 
                     &--inventory {
                         @extend .warehouse-details__wrapper-inventory__labels-tablet__container-one__box;
@@ -85,8 +92,27 @@
                 display: flex;
                 justify-content: space-between;
 
+                @include tablet {
+                    display: flex;
+                    width: 200px;            
+                }
+
+                @include desktop {
+                    display: flex;
+                    width: 300px;            
+                }
+
                 &__box {
+
+                    &--header {
+                        display: flex;
+                    }
+
                     &--quantity {
+                        display: flex;
+                    }
+
+                    &--actions {
                         display: flex;
                     }
                 }

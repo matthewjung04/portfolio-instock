@@ -1,8 +1,54 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/media-query' as *;
 
 img {
   vertical-align: middle;
   padding-left: 2px;
+}
+
+#sort {
+  width: 18px;
+}
+
+#\31 {
+  @include tablet {
+    border: none;
+  }
+}
+
+thead {
+  display: none;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+
+    background-color: $light-grey;
+    color: $slate;
+    
+    height: 38px;
+    width: 99.5%;
+
+    display: flex;
+    align-items: center;
+  }
+
+  @include desktop {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+th {
+  @include tablet {
+    width: 240px;
+  }
+
+  @include desktop {
+    width: 100vw;
+  }
 }
 
 a {
@@ -10,6 +56,11 @@ a {
   color: $instock-indigo;
   font-size: $h3-size;
   line-height: $h3-line-height;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 
 button {
@@ -19,12 +70,34 @@ button {
 }
 
 h4 {
-  padding-bottom: 4px;;
+  padding-bottom: 4px;
+
+  @include tablet {
+    display: none;;
+  }
 }
 
 #text {
   font-size: 12px;
   line-height: $p2-line-height;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+.table-rows {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $cloud;
+  width: 95%;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
 }
 
 .warehouses {
@@ -36,7 +109,7 @@ h4 {
   margin-top: -50px;
 
   &__header {
-    padding: 32px 16px 16px;
+    padding: 24px 16px 16px;
 
     &__nav {
       padding: 16px 0;
@@ -69,19 +142,21 @@ h4 {
   }
 
   &__list {
-    
+    width: 100%;
+
     &__rows {
+      width: 95%;
       padding: 16px;
-      border-top: 1px solid $cloud;
+
+      display: flex;
+      flex-direction: row;
 
       &__top {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        padding-bottom: 16px;
+        flex-direction: column;
 
         &__item {
+          padding-top: 8px;
           width: 120px;
         }
       }
@@ -90,10 +165,12 @@ h4 {
         @extend .warehouses__list__rows__top;
 
         &__address {
+          padding-left: 12px;
           width: 110px;
         }
 
         &__contact {
+          padding-top: 8px;
           padding-left: 10px;;
           width: 130px;
         }
@@ -103,6 +180,113 @@ h4 {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding: 0 16px;
+        width: 100%;
+      }
+    }
+  }
+
+  @include tablet {
+    margin: 0 32px;
+    margin-top: -93px;
+
+    &__header {
+      padding: 24px 36px 0 36px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      &__nav {
+        display: flex;
+        flex-direction: row;
+
+        &__search {
+          width: 165px;
+          margin-right: 16px;
+        }
+
+        &__add {
+          width: 165px;
+        }
+      }
+    }
+
+    &__list {
+      width: 100%;
+
+      &__rows {
+        padding: 16px 36px;
+
+        display: flex;
+        flex-direction: row;
+
+        &__top {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 230px;
+
+          &__item {
+            width: 100px;
+          }
+        }
+
+        &__bottom {
+          width: 50%;
+          padding-left: 8px;
+          display: flex;
+          flex-direction: row;
+        }
+
+        &__buttons {
+          width: 15%;
+          margin-right: 15px;
+
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    margin: -95px 200px;
+    margin-bottom: 200px;
+
+    &__list {
+      &__rows {
+        padding: 12px 64px;
+
+        display: flex;
+        flex-direction: row;
+
+        &__top {
+          width: 100%;
+          &__item {
+            width: 42%;
+            padding: 0;
+          }
+        }
+
+        &__bottom {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          &__contact {
+            width: 100%;
+          }
+
+          &__address {
+            width: 100%;
+            padding-right: 36px;
+          }
+        }
+
+        &__buttons {
+          display: flex;
+          justify-content: space-around;
+        }
       }
     }
   }
