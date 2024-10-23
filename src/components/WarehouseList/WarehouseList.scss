@@ -69,11 +69,11 @@ button {
   cursor: pointer;
 }
 
-h4 {
+#titles {
   padding-bottom: 4px;
 
   @include tablet {
-    display: none;;
+    display: none;
   }
 }
 

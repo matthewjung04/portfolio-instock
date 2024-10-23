@@ -70,24 +70,24 @@ function WarehouseList({ add, edit}) {
                     <div id={warehouse.id} className='warehouses__list__rows'>
                       <article className='warehouses__list__rows__top'>
                         <div>
-                          <h4>WAREHOUSE</h4>
+                          <h4 id='titles'>WAREHOUSE</h4>
                           <Link to={`/warehouses/${warehouse.id}`} id='link'>
                           {warehouse.warehouse_name}
                             <img src={chevron}/>
                           </Link>
                         </div>
                         <div className='warehouses__list__rows__top__item'>
-                          <h4>ADDRESS</h4>
+                          <h4 id='titles'>ADDRESS</h4>
                           <p id='text'>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
                         </div>
                       </article>
                       <article className='warehouses__list__rows__bottom'>
                         <div className='warehouses__list__rows__bottom__address'>
-                          <h4>CONTACT NAME</h4>
+                          <h4 id='titles'>CONTACT NAME</h4>
                           <p id='text'>{warehouse.contact_name}</p>
                         </div>
                         <div className='warehouses__list__rows__bottom__contact'>
-                          <h4>CONTACT INFORMATION</h4>
+                          <h4 id='titles'>CONTACT INFORMATION</h4>
                           <p id='text'>{warehouse.contact_phone}</p>
                           <p id='text'>{warehouse.contact_email}</p>
                         </div>

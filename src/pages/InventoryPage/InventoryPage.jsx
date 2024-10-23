@@ -8,7 +8,7 @@ const InventoryPage = () => {
 
     const [inventoryList, setInventoryList] = useState(null);
 
-    const baseUrl = import.meta.env.VITE_API_URL;
+    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
     const fetchInventoryList = async() => {
         try {
