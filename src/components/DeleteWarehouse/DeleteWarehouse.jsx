@@ -10,12 +10,12 @@ function DeleteWarehouse({name}) {
 
   return (
     <div id='deleteModal' className='modal'>
-      <article className='delete'>
-      <button  className='delete__close' type="button" onClick={returnHome}>
-        <img src={closeIcon}/>
-      </button>
+      <div className='delete'>
+        <button  className='delete__close' type="button" onClick={returnHome}>
+          <img src={closeIcon}/>
+        </button>
         <h1 className='delete__title'>{`Delete ${name} warehouse?`}</h1>
-        <p>
+        <p id='delete-message'>
           {`Please confirm that you’d like to delete ${name} from the list of warehouses.
           You won’t be able to undo this action.`}
         </p>
@@ -23,7 +23,7 @@ function DeleteWarehouse({name}) {
           <button  className='delete__buttons__cancel' type="button" onClick={returnHome}>Cancel</button>
           <button className='delete__buttons__confirm' type="button">Delete</button>
         </div>
-      </article>
+      </div>
     </div>
   )
 }

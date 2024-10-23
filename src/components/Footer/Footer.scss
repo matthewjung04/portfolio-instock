@@ -9,17 +9,19 @@
   color: $slate;
 
   left: 50%;
-  margin-left: -80px;
+  margin-left: 80px;
 
   padding: 40px 0;
 
   @include tablet {
     font-size: 12px;
     line-height: 18px;
+    margin-left: 320px;
   }
 
   @include desktop {
     position: absolute;
+    left: 20rem;
     top: 58rem;
   }
 }
