@@ -11,7 +11,6 @@ import './WarehouseDetails.scss';
 const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, warehouseCountry, warehouseContactName, warehouseContactPosition, warehouseContactPhone, warehouseContactEmail }) => {
     const navigate = useNavigate();
     const handleClick = () => {
-        console.log("test")
         navigate("/");
     }
 

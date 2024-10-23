@@ -52,6 +52,7 @@ const WarehousePage = () => {
         }
     }, [id]);
 
+<<<<<<< HEAD
     const addHandler = () => {
         navigate("/warehouses/add")
     }
@@ -61,8 +62,10 @@ const WarehousePage = () => {
         navigate(`/warehouses/${editID}/edit`);
     }
     
+=======
+>>>>>>> development
     return (
-        <>
+        <main className="warehouse-page">
             {warehouseDetails && warehouseInventoryList ? (
                 <>
                     <WarehouseDetails 
@@ -85,7 +88,7 @@ const WarehousePage = () => {
                         edit = {editHandler}
                     />
             )}
-        </>
+        </main>
     )
 }
 
