@@ -1,7 +1,28 @@
-// .footer {
-//   position: absolute;
-//   left: 50%;
-//   bottom: 2.5rem;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/media-query' as *;
 
-//   margin-left: -80px;
-// }
+.footer {
+  font-family: TitilliumWeb-Regular;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  color: $slate;
+
+  left: 50%;
+  margin-left: 80px;
+
+  padding: 40px 0;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+    margin-left: 320px;
+  }
+
+  @include desktop {
+    position: absolute;
+    left: 20rem;
+    top: 58rem;
+  }
+}
+

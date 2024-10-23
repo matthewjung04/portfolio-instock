@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './WarehousePage.scss'
+import WarehouseList from '../../components/WarehouseList/WarehouseList'
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
 import WarehouseInventoryList from '../../components/WarehouseInventoryList/WarehouseInventoryList';
+import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
+import EditWarehouse from '../../components/EditWarehouse/EditWarehouse';
 
 const WarehousePage = () => {
 
     const { id } = useParams();
     const [warehouseDetails, setWarehouseDetails] = useState(null);
     const [warehouseInventoryList, setWarehouseInventoryList] = useState(null);
+    const [hasAdded, setHasAdded] = useState(false);
+    const [hasEdited, setHasEdited] = useState(false);
 
-    const baseUrl = import.meta.env.VITE_API_URL;
+    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
+    const navigate = useNavigate();
 
     const fetchWarehouseDetails = async (warehouseSelectedId) => {
         try {
@@ -45,6 +52,15 @@ const WarehousePage = () => {
         }
     }, [id]);
 
+    const addHandler = () => {
+        navigate("/warehouses/add")
+    }
+
+    const editHandler = (e) => {
+        const editID = e.target.parentElement.id;
+        navigate(`/warehouses/${editID}/edit`);
+    }
+    
     return (
         <main className="warehouse-page">
             {warehouseDetails && warehouseInventoryList ? (
@@ -64,7 +80,10 @@ const WarehousePage = () => {
                     /> 
                 </>
             ) : (
-                    "loading..."
+                    <WarehouseList
+                        add = {addHandler}
+                        edit = {editHandler}
+                    />
             )}
         </main>
     )

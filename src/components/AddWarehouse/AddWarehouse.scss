@@ -98,9 +98,13 @@ body {
     }
   }
   &__details {
-    border-right: 1px solid $cloud;
     padding-right: 1.5rem;
     padding-left: 1rem;
+
+    @media (min-width: $tablet) {
+      border-right: 1px solid $cloud;
+    }
+
   }
   &__contact-details {
     padding-right: 1rem;
