@@ -47,7 +47,7 @@
             }   
             
             &__box-edit {
-                
+
                 @include tablet {
                     display: flex;
                     align-items: center;
@@ -57,6 +57,10 @@
                     background-color: $instock-indigo;
                     border-radius: 100%;
                     padding: 0.5rem;
+
+                    &:hover {
+                        background-color: $graphite;
+                    }
     
                     @include tablet {
                         width: 5.06rem;

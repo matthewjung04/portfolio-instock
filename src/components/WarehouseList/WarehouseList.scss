@@ -137,6 +137,10 @@ button {
 
         border: none;
         border-radius: 20px;
+
+        &:hover {
+          background-color: $graphite;
+        }
       }
     }
   }

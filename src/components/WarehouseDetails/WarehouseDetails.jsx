@@ -1,17 +1,16 @@
-import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 import { useNavigate } from "react-router-dom";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import editWhite from "../../assets/icons/edit-white-24px.svg";
-import chevron from "../../assets/icons/chevron_right-24px.svg";
-import editBlue from "../../assets/icons/edit-24px.svg";
-import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
-import sortDefault from "../../assets/icons/sort-24px.svg";
 import './WarehouseDetails.scss';
 
-const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, warehouseCountry, warehouseContactName, warehouseContactPosition, warehouseContactPhone, warehouseContactEmail }) => {
+const WarehouseDetails = ({ warehouseID, warehouseName, warehouseAddress, warehouseCity, warehouseCountry, warehouseContactName, warehouseContactPosition, warehouseContactPhone, warehouseContactEmail }) => {
     const navigate = useNavigate();
     const handleClick = () => {
         navigate("/");
+    }
+
+    const redirectToEdit = () => {
+        navigate(`/warehouses/${warehouseID}/edit`)
     }
 
     return (
@@ -22,10 +21,10 @@ const WarehouseDetails = ({ warehouseName, warehouseAddress, warehouseCity, ware
                         <img className="warehouse-details__container__top__box--arrow" onClick={handleClick} src={arrowBack}/>
                         <h1 className="warehouse-details__container__top__box--title">{warehouseName}</h1>
                     </div>
-                    <div className="warehouse-details__container__top__box-edit">
-                        <img className="warehouse-details__container__top__box-edit--icon" src={editWhite}/>
+                    <button className="warehouse-details__container__top__box-edit">
+                        <img className="warehouse-details__container__top__box-edit--icon" src={editWhite} onClick={redirectToEdit}/>
                         <h3 className="warehouse-details__container__top__box-edit--text">Edit</h3>
-                    </div>
+                    </button>
                 </div> 
             </div>
             <div className="warehouse-details__wrapper">

@@ -65,7 +65,8 @@ const WarehousePage = () => {
         <main className="warehouse-page">
             {warehouseDetails && warehouseInventoryList ? (
                 <>
-                    <WarehouseDetails 
+                    <WarehouseDetails
+                        warehouseID = {warehouseDetails.id}
                         warehouseName = {warehouseDetails.warehouse_name}
                         warehouseAddress = {warehouseDetails.address}
                         warehouseCity = {warehouseDetails.city}
