@@ -1,12 +1,37 @@
+import { url } from '../../utils/utils'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import closeIcon from '../../assets/icons/close-24px.svg'
 import './DeleteWarehouse.scss'
 
-function DeleteWarehouse({name}) {
-
+function DeleteWarehouse({name, id}) {
+  
+  let [hasDelete, setHasDelete] = useState(false);
+  
   const returnHome = () => {
     var popup = document.getElementById("deleteModal");
     popup.style.display = "none";
+    
+    
   }
+
+  const deleteData = () => {
+    setHasDelete(hasDelete=true)
+  }
+
+  useEffect(() => {
+    const deleteWarehouseData = async () => {
+      if(hasDelete) {
+        await axios
+          .delete(`${url}/api/warehouses/${id}`)
+          .then(() => {
+            window.location.reload();
+            returnHome();
+          })
+      }
+    }
+    deleteWarehouseData();
+  },[hasDelete])
 
   return (
     <div id='deleteModal' className='modal'>
@@ -21,7 +46,7 @@ function DeleteWarehouse({name}) {
         </p>
         <div className='delete__buttons'>
           <button  className='delete__buttons__cancel' type="button" onClick={returnHome}>Cancel</button>
-          <button className='delete__buttons__confirm' type="button">Delete</button>
+          <button className='delete__buttons__confirm' type="button" onClick={deleteData}>Delete</button>
         </div>
       </div>
     </div>

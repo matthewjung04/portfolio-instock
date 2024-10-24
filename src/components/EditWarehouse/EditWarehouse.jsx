@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { url } from '../../utils/utils'
 import "./EditWarehouse.scss";
 
 function EditWarehouse() {
@@ -15,15 +16,17 @@ function EditWarehouse() {
     contact_phone: "",
     contact_email: "",
   });
-
+  console.log(formData)
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch warehouse data by ID
     const fetchWarehouse = async () => {
       try {
-        const response = await axios.get(`/api/warehouses/${id}`);
+        const response = await axios.get(`${url}/api/warehouses/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching warehouse data", error);
@@ -43,9 +46,19 @@ function EditWarehouse() {
     if (Object.keys(newErrors).length === 0) {
       try {
         // Axios PUT request
-        const response = await axios.put(`/api/warehouses/${id}`, formData);
+        const response = await axios.put(`${url}/api/warehouses/${id}`, {
+          warehouse_name: formData.warehouse_name,
+          address: formData.address,
+          city: formData.city,
+          country: formData.country,
+          contact_name: formData.contact_name,
+          contact_position: formData.contact_position,
+          contact_phone: formData.contact_phone,
+          contact_email: formData.contact_email,
+        });
         if (response.status === 200) {
           setSuccessMessage("Warehouse updated successfully!");
+          return(navigate('/'))
         }
       } catch (error) {
         if (error.response && error.response.status === 400) {
@@ -65,7 +78,7 @@ function EditWarehouse() {
 
   const validateForm = (data) => {
     const newErrors = {};
-    const phoneRegex = /^\+?[0-9\s-]{10,20}$/;
+    const phoneRegex = /\+1\s\(\d\d\d\)\s\d\d\d-\d\d\d\d/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!data.warehouse_name)
@@ -84,12 +97,15 @@ function EditWarehouse() {
     return newErrors;
   };
 
+  const returnToHome = () => { return(navigate('/')) }
+
   return (
     <form className="warehouse-form" onSubmit={handleSubmit}>
       <div className="warehouse-form__add">
         <img
           src="/src/assets/icons/arrow_back-24px.svg"
           alt="goback arrow"
+          onClick={returnToHome}
           className="warehouse-form__icon"
         />
         <h2 className="warehouse-form__title">Edit Warehouse</h2>
@@ -235,6 +251,7 @@ function EditWarehouse() {
         <button
           type="button"
           className="warehouse-form__button warehouse-form__button--cancel"
+          onClick={returnToHome}
         >
           Cancel
         </button>
