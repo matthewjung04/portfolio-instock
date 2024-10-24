@@ -12,10 +12,11 @@ import './WarehouseList.scss'
 function WarehouseList({ add, edit}) {
   let [warehouses, setWarehouses] = useState([]);
   let [warehouseName, setWarehouseName] = useState("");
+  let [deleteID, setDeleteID] = useState(0);
 
   const deleteHandler = (e) => {
-    console.log(e.target.parentElement.id)
     setWarehouseName(e.target.parentElement.id)
+    setDeleteID(deleteID=e.target.id)
     var popup = document.getElementById("deleteModal");
     popup.style.display = "block";
   }
@@ -35,6 +36,7 @@ function WarehouseList({ add, edit}) {
     <>
       <DeleteWarehouse
         name={warehouseName}
+        id={deleteID}
       />
       <section className='warehouses'>
         <article className='warehouses__header'>
@@ -94,7 +96,9 @@ function WarehouseList({ add, edit}) {
                       </article>
                     </div>
                     <div className='warehouses__list__rows__buttons'>
-                      <button id={warehouse.warehouse_name} type='button' onClick={deleteHandler}><img src={deleteSVG}/></button>
+                      <button id={warehouse.warehouse_name} type='button' onClick={deleteHandler}>
+                        <img id={warehouse.id} src={deleteSVG}/>
+                      </button>
                       <button id={warehouse.id} type='button' onClick={edit}><img src={editSVG}/></button>
                     </div>
                   </td>
