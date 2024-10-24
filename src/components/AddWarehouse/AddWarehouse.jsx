@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { url } from '../../utils/utils'
 import "./AddWarehouse.scss";
 
 function AddWarehouse() {
@@ -13,9 +15,11 @@ function AddWarehouse() {
     contact_phone: "",
     contact_email: "",
   });
-
+  
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +32,7 @@ function AddWarehouse() {
     if (Object.keys(newErrors).length === 0) {
       try {
         // POST request
-        const response = await axios.post("/api/warehouses", formData);
+        const response = await axios.post(`${url}/api/warehouses`, formData);
 
         if (response.status === 201) {
           setSuccessMessage("Warehouse added successfully!");
@@ -43,6 +47,8 @@ function AddWarehouse() {
             contact_phone: "",
             contact_email: "",
           });
+
+          return( navigate('/'))
         }
       } catch (error) {
         if (error.response && error.response.status === 400) {
@@ -63,7 +69,7 @@ function AddWarehouse() {
   // Validation function
   const validateForm = (data) => {
     const newErrors = {};
-    const phoneRegex = /^\+?[0-9\s-]{10,20}$/;
+    const phoneRegex = /\+1\s\(\d\d\d\)\s\d\d\d-\d\d\d\d/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!data.warehouse_name)
@@ -82,6 +88,8 @@ function AddWarehouse() {
     return newErrors;
   };
 
+  const returnToHome = () => { return(navigate('/')) }
+
   return (
     <form className="warehouse-form1" onSubmit={handleSubmit}>
       <div className="warehouse-form1__add">
@@ -89,6 +97,7 @@ function AddWarehouse() {
           src="/src/assets/icons/arrow_back-24px.svg"
           alt="goback arrow"
           className="warehouse-form1__icon"
+          onClick={returnToHome}
         />
         <h2 className="warehouse-form1__title">Add New Warehouse</h2>
       </div>
@@ -243,6 +252,7 @@ function AddWarehouse() {
         <button
           type="button"
           className="warehouse-form1__button warehouse-form1__button--cancel"
+          onClick={returnToHome}
         >
           Cancel
         </button>
