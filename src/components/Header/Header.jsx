@@ -1,14 +1,12 @@
 import "./Header.scss";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import InStockLogo from "../../assets/logos/InStock-Logo.svg";
 
 const Header = () => {
-  const [activeNav, setActiveNav] = useState("warehouses"); //State created to store active Nav option
 
-  const handleNavClick = (navOption) => {
-    setActiveNav(navOption);
-  };
+  const location = useLocation();
+  const isWarehouses = location.pathname === "/" || location.pathname.startsWith("/warehouses");
+  const isInventory = location.pathname.startsWith("/inventory");
 
   return (
     <header className="header">
@@ -20,14 +18,13 @@ const Header = () => {
           <ul className="header__container__nav">
             <li
               className={`header__container__nav--box${
-                activeNav === "warehouses" ? "--active" : ""
+                isWarehouses ? "--active" : ""
               }`}
             >
               <Link
                 to="/"
-                onClick={() => handleNavClick("warehouses")}
                 className={`header__container__nav--box--link${
-                  activeNav === "warehouses" ? "--active" : ""
+                  isWarehouses ? "--active" : ""
                 }`}
               >
                 Warehouses
@@ -35,14 +32,13 @@ const Header = () => {
             </li>
             <li
               className={`header__container__nav--box${
-                activeNav === "inventory" ? "--active" : ""
+                isInventory ? "--active" : ""
               }`}
             >
               <Link
                 to="/inventory"
-                onClick={() => handleNavClick("inventory")}
                 className={`header__container__nav--box--link${
-                  activeNav === "inventory" ? "--active" : ""
+                  isInventory ? "--active" : ""
                 }`}
               >
                 Inventory
