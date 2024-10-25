@@ -20,9 +20,9 @@
   }
 
   @include desktop {
-    position: absolute;
+    position: relative;
     left: 20rem;
-    top: 58rem;
+    bottom: 2rem;
   }
 }
 
