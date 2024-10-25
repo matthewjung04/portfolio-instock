@@ -15,7 +15,7 @@ const InventoryList = ({ inventoryDetails }) => {
     const deleteItem = (event) => {
         setItemName(event.target.parentElement.id);
         setDeleteId(event.target.id);
-        const deletePopup = document.getElementById("deleteInventoryModal");
+        var deletePopup = document.getElementById("deleteInventoryModal");
         deletePopup.style.display = "block";
     }
 
