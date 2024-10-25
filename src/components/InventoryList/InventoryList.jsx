@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import chevron from "../../assets/icons/chevron_right-24px.svg";
 import editBlue from "../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
@@ -7,8 +8,7 @@ import './InventoryList.scss'
 
 
 const InventoryList = ({ inventoryDetails }) => {
-    console.log(inventoryDetails);
-
+    console.log(inventoryDetails)
     return (
         <section className="inventory-list">        
             <div className="inventory-list__container">
@@ -63,10 +63,10 @@ const InventoryList = ({ inventoryDetails }) => {
                             <div className="inventory-list__wrapper-inventory__container__top--one">
                                 <div className="inventory-list__wrapper-inventory__container__top--one--item">
                                     <h4 className="inventory-list__wrapper-inventory__container__top--one--item--header">INVENTORY ITEM</h4>
-                                    <div className="inventory-list__wrapper-inventory__container__top--one--item--box">
+                                    <Link className="inventory-list__wrapper-inventory__container__top--one--item--box" to={`/inventory/${inventoryList.id}`}>
                                         <h3 className="inventory-list__wrapper-inventory__container__top--one--item--box--name">{inventoryList.itemName}</h3>
                                         <img className="inventory-list__wrapper-inventory__container__top--one--item--box--icon" src={chevron}/>
-                                    </div>     
+                                    </Link>     
                                 </div>
                                 <div className="inventory-list__wrapper-inventory__container__top--one--category">
                                     <h4 className="inventory-list__wrapper-inventory__container__top--one--category--header">CATEGORY</h4>
