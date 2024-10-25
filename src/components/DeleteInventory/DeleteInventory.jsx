@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import closeIcon from "../../assets/icons/close-24px.svg"
 import "./DeleteInventory.scss"
 
