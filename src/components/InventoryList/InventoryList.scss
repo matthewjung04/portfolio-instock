@@ -3,6 +3,10 @@
 @use '../../App.scss' as *;
 @use '../../styles/partials/media-query' as *;
 
+img {
+    cursor: pointer;
+}
+
 .inventory-list {
     @include page-layout;
 

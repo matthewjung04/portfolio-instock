@@ -11,9 +11,49 @@ const InventoryPage = () => {
     const { id } = useParams();
 
     const [inventoryList, setInventoryList] = useState(null);
-    const [inventoryData, setInventoryData] = useState(null);
+    const [ascSort, setAscSort] = useState(false);
+    const [descSort, setDescSort] = useState(false);
+    const [column, setColumn] = useState('');
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
+    const sortList = (e) => {
+        if (column != e.target.id) {
+            setColumn(e.target.id);
+            setAscSort(true)
+        } else if (column === e.target.id) {
+            if(!descSort) {
+                setAscSort(false);
+                setDescSort(true);
+            } else if (descSort) {
+                setAscSort(false);
+                setDescSort(false);
+            }
+
+        }
+    }
+
+    useEffect(() => {
+        const sortInventory = async () => {
+            if (descSort) {
+                await axios
+                    .get(`http://localhost:8080/api/inventories?sort_by=${column}&order_by=desc`)
+                    .then((res) => {
+                        setInventoryList(res.data);
+                        return setInventoryList;
+                    })
+            } else {
+                await axios
+                    .get(`${baseUrl}/api/inventories?sort_by=${column}&order_by=asc`)
+                    .then((res) => {
+                        setInventoryList(res.data);
+                        return setInventoryList;
+                    })
+
+            }
+        }
+        sortInventory();
+    },[ascSort, descSort])
 
     const fetchInventoryList = async() => {
         try {
@@ -30,25 +70,12 @@ const InventoryPage = () => {
         fetchInventoryList();
     }, []);
 
-    useEffect(() => {
-        const fetchInventoryDetails = async() => {
-            try {
-                const { data } = await axios.get(baseUrl + "/api/inventories/" + id);
-                setInventoryData(data);
-                return setInventoryData;
-            }
-            catch(error) {
-                console.error(error);
-            }
-        }
-        fetchInventoryDetails();
-    },[id])
-
     return (
         <main className="inventory-page">
-            { inventoryList  && !id ? <InventoryList 
+            { inventoryList && !id ? <InventoryList 
                 inventoryDetails = {inventoryList}
-            />: <InventoryDetails inventory = {inventoryData}/>
+                sorting = {sortList}
+            />: <InventoryDetails />
             }
         </main>
     )

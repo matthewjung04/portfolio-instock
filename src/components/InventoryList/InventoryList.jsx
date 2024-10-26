@@ -6,9 +6,8 @@ import sortDefault from "../../assets/icons/sort-24px.svg";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import './InventoryList.scss'
 
-
-const InventoryList = ({ inventoryDetails }) => {
-    console.log(inventoryDetails)
+const InventoryList = ({ inventoryDetails, sorting }) => {
+    
     return (
         <section className="inventory-list">        
             <div className="inventory-list__container">
@@ -31,25 +30,25 @@ const InventoryList = ({ inventoryDetails }) => {
                 <div className="inventory-list__wrapper-inventory__labels-tablet__container-one">
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--inventory">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--header">INVENTORY ITEM</h4>
-                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                        <img id='item_name' className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorting}/>
                     </div>     
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-one__box">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--header">CATEGORY</h4>
-                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                        <img id='category' className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorting}/>
                     </div>   
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-one__box">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--header">STATUS</h4>
-                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                        <img id='status' className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorting}/>
                     </div> 
                 </div>
                 <div className="inventory-list__wrapper-inventory__labels-tablet__container-two">
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--quantity">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">QTY</h4>
-                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                        <img id='quantity' className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorting}/>
                     </div>
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--warehouse">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">WAREHOUSE</h4>
-                        <img className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                        <img id='warehouses.warehouse_name' className="inventory-list__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorting}/>
                     </div>   
                     <div className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--actions">
                         <h4 className="inventory-list__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
