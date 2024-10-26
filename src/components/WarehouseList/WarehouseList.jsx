@@ -72,6 +72,31 @@ function WarehouseList({ add, edit}) {
     popup.style.display = "block";
   }
 
+  const searchKeyPress = (e) => {
+    setSearchKey(e.target.value);
+  }
+
+  const searchClick = () => {
+    var searchInput = document.getElementsByTagName("input")[0].value;
+    setSearchKey(searchInput);
+  }
+
+  useEffect(() => {
+    const fetchSearch = async () => {
+        if(searchKey) {
+            await axios
+                .get(`${url}/api/warehouses?s=${searchKey}`)
+                .then((res) => {
+                    setWarehouses(res.data);
+                })
+                .then(() => {
+                    setSearchKey('');
+                })
+        }
+    }
+    fetchSearch();
+  },[searchKey])
+
   useEffect(() => {
     const fetchWarehouses = async () => {
       await axios
@@ -93,14 +118,16 @@ function WarehouseList({ add, edit}) {
         <article className='warehouses__header'>
           <h1>Warehouses</h1>
           <div className='warehouses__header__nav'>
-            <button>
-              <input className='warehouses__header__nav__search'
+            <div className='warehouses__header__nav__search'>
+              <input
+                onKeyDown={searchKeyPress}
+                className='searching'
                 type='text'
                 name='search' 
                 placeholder='Search...'
               />
-              <img src={searchSVG}/>
-            </button>
+              <img className='searchIcon' src={searchSVG} onClick={searchClick}/>
+            </div>
 
             <button className='warehouses__header__nav__add' type='button' onClick={add}>
               + Add New Warehouse
