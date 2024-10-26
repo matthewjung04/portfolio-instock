@@ -8,21 +8,23 @@
   line-height: 16px;
   color: $slate;
 
-  left: 50%;
-  margin-left: 80px;
+  left: 5rem;
 
   padding: 40px 0;
+  width: auto;
+  position: relative;
 
   @include tablet {
     font-size: 12px;
     line-height: 18px;
-    margin-left: 320px;
+    left: 0;
   }
 
   @include desktop {
-    position: relative;
-    left: 20rem;
+    width: auto;
     bottom: 2rem;
+    text-align: center;
+    left: 0;
   }
 }
 

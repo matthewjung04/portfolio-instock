@@ -10,11 +10,11 @@ const EditInventory = () => {
     item_name: "",
     description: "",
     category: "",
-    status: "In Stock",
+    status: "IN STOCK",
     quantity: "",
     warehouse: "",
   });
-
+  console.log(formData)
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState({});
@@ -25,7 +25,7 @@ const EditInventory = () => {
   useEffect(() => {
     const fetchItemData = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/inventory/${id}`);
+        const response = await axios.get(`${baseUrl}/api/inventories/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching item data", error);
@@ -47,7 +47,7 @@ const EditInventory = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("/api/categories");
+        const response = await axios.get(`${baseUrl}/api/inventories`);
         if (Array.isArray(response.data)) {
           setCategories(response.data);
         } else {
@@ -71,7 +71,14 @@ const EditInventory = () => {
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.put(`/api/inventory/${id}`, formData);
+        const response = await axios.put(`${baseUrl}/api/inventories/${id}`, {
+          warehouse_id: formData.warehouse,
+          item_name: formData.item_name,
+          description: formData.description,
+          category: formData.category,
+          status: formData.status,
+          quantity: formData.quantity,
+        });
         if (response.status === 200) {
           setSuccessMessage("Item updated successfully!");
           navigate("/inventory");
@@ -89,7 +96,7 @@ const EditInventory = () => {
     if (!data.item_name) newErrors.item_name = "Item name is required";
     if (!data.description) newErrors.description = "Description is required";
     if (!data.category) newErrors.category = "Category is required";
-    if (data.status === "In Stock" && !data.quantity)
+    if (data.status === "IN STOCK" && !data.quantity)
       newErrors.quantity = "Quantity is required";
     if (!data.warehouse) newErrors.warehouse = "Warehouse is required";
     return newErrors;
@@ -154,8 +161,8 @@ const EditInventory = () => {
             >
               <option value="">Please select</option>
               {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
+                <option value={category.category}>
+                  {category.category}
                 </option>
               ))}
             </select>
@@ -173,10 +180,10 @@ const EditInventory = () => {
               <label>
                 <input
                   type="radio"
-                  value="In Stock"
-                  checked={formData.status === "In Stock"}
+                  value="IN STOCK"
+                  checked={formData.status === "IN STOCK"}
                   onChange={() =>
-                    setFormData({ ...formData, status: "In Stock" })
+                    setFormData({ ...formData, status: "IN STOCK" })
                   }
                 />
                 In Stock
@@ -184,10 +191,10 @@ const EditInventory = () => {
               <label>
                 <input
                   type="radio"
-                  value="Out of Stock"
-                  checked={formData.status === "Out of Stock"}
+                  value="OUT OF STOCK"
+                  checked={formData.status === "OUT OF STOCK"}
                   onChange={() =>
-                    setFormData({ ...formData, status: "Out of Stock" })
+                    setFormData({ ...formData, status: "OUT OF STOCK" })
                   }
                 />
                 Out of Stock
@@ -195,7 +202,7 @@ const EditInventory = () => {
             </div>
           </label>
 
-          {formData.status === "In Stock" && (
+          {formData.status === "IN STOCK" && (
             <label className="inventory-form2__label">
               <h3 className="inventory-form2__label-text">Quantity</h3>
               <input
@@ -218,7 +225,7 @@ const EditInventory = () => {
               className="inventory-form2__input"
               value={formData.warehouse}
               onChange={(e) =>
-                setFormData({ ...formData, warehouse: e.target.value })
+                setFormData({ ...formData, warehouse: parseInt(e.target.value) })
               }
             >
               <option value="">Please select</option>

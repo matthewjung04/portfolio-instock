@@ -256,6 +256,7 @@ img {
                             &--icon {
                                 width: 1.25rem;
                                 height: 1.25rem;
+                                transition: transform 0.3s ease;
                             }
                         }
                     }
@@ -404,4 +405,15 @@ img {
             }
        }
     }
+}
+
+.chevron {
+    transition: transform 0.3s ease;
+
+    &:hover{
+        transform: translateX(4px);
+    }
+  }
+#Link:hover .chevron {
+    transform: translateX(4px);
 }
