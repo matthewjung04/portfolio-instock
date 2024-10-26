@@ -81,6 +81,7 @@ const InventoryPage = () => {
             { inventoryList && !id ? <InventoryList 
                 inventoryDetails = {inventoryList}
                 sorting = {sortList}
+                searching = {searchResults}
             />: <InventoryDetails />
             }
         </main>
