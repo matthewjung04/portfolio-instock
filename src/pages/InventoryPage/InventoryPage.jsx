@@ -19,9 +19,7 @@ const InventoryPage = () => {
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
     const searchResults = (e) => {
-        if(e.key==='Enter') {
-            setSearchKey(e.target.value);
-        }
+        setSearchKey(e.target.value);
     }
 
     const searchResultsClick = () => {

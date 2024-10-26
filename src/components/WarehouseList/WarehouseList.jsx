@@ -14,6 +14,7 @@ function WarehouseList({ add, edit}) {
   let [warehouses, setWarehouses] = useState([]);
   let [warehouseName, setWarehouseName] = useState("");
   let [deleteID, setDeleteID] = useState(0);
+  const [searchKey, setSearchKey] = useState('');
 
   const deleteHandler = (e) => {
     setWarehouseName(e.target.parentElement.id)
@@ -21,6 +22,31 @@ function WarehouseList({ add, edit}) {
     var popup = document.getElementById("deleteModal");
     popup.style.display = "block";
   }
+
+  const searchKeyPress = (e) => {
+    setSearchKey(e.target.value);
+  }
+
+  const searchClick = () => {
+    var searchInput = document.getElementsByTagName("input")[0].value;
+    setSearchKey(searchInput);
+  }
+
+  useEffect(() => {
+    const fetchSearch = async () => {
+        if(searchKey) {
+            await axios
+                .get(`${url}/api/warehouses?s=${searchKey}`)
+                .then((res) => {
+                    setWarehouses(res.data);
+                })
+                .then(() => {
+                    setSearchKey('');
+                })
+        }
+    }
+    fetchSearch();
+  },[searchKey])
 
   useEffect(() => {
     const fetchWarehouses = async () => {
@@ -45,12 +71,13 @@ function WarehouseList({ add, edit}) {
           <div className='warehouses__header__nav'>
             <div className='warehouses__header__nav__search'>
               <input
+                onKeyDown={searchKeyPress}
                 className='searching'
                 type='text'
                 name='search' 
                 placeholder='Search...'
               />
-              <img className='searchIcon' src={searchSVG}/>
+              <img className='searchIcon' src={searchSVG} onClick={searchClick}/>
             </div>
 
             <button className='warehouses__header__nav__add' type='button' onClick={add}>
