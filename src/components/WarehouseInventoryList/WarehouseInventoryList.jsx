@@ -6,7 +6,9 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import sortDefault from "../../assets/icons/sort-24px.svg";
 import './WarehouseInventoryList.scss'
 import DeleteInventory from "../DeleteInventory/DeleteInventory";
-const WarehouseInventoryList = ({ warehouseInventory, sorted }) => {
+import EditInventory from "../EditInventory/EditInventory";
+
+const WarehouseInventoryList = ({ warehouseInventory, sorted, editItem }) => {
 
     const [itemName, setItemName] = useState(null);
     const [deleteId, setDeleteId] = useState(null);
@@ -93,7 +95,11 @@ const WarehouseInventoryList = ({ warehouseInventory, sorted }) => {
                                     <button id={inventory.itemName} type='button' onClick={deleteItemWarehouse}>
                                          <img id={inventory.id} src={deleteIcon}/>
                                     </button>
-                                        <img className="warehouse-details__wrapper-inventory__container__top--two--actions-tablet--icon" src={editBlue}/>
+                                        <img 
+                                            className="warehouse-details__wrapper-inventory__container__top--two--actions-tablet--icon" 
+                                            src={editBlue}
+                                            id={inventory.id}
+                                            onClick={editItem}/>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +107,7 @@ const WarehouseInventoryList = ({ warehouseInventory, sorted }) => {
                                 <button id={inventory.itemName} type='button' onClick={deleteItemWarehouse}>
                                          <img id={inventory.id} src={deleteIcon}/>
                                 </button>
-                                <img src={editBlue}/>
+                                <img src={editBlue} id={inventory.id} onClick={editItem}/>
                             </div>
                         </div>
                     </li>

@@ -8,7 +8,7 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 import DeleteInventory from '../DeleteInventory/DeleteInventory';
 import './InventoryList.scss'
 
-const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon }) => {
+const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon, add, edit }) => {
     
     const [itemName, setItemName] = useState(null);
     const [deleteId, setDeleteId] = useState(null);
@@ -19,7 +19,7 @@ const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon }) 
         var deletePopup = document.getElementById("deleteInventoryModal");
         deletePopup.style.display = "block";
     }
-
+    console.log(inventoryDetails)
     return (
         <>
             <DeleteInventory
@@ -39,7 +39,7 @@ const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon }) 
                                 <input onKeyDown={searching} className="inventory-list__container__top__box-functionality--search-bar--input p2" type="text" name="search" placeholder="Search..."/>
                             </div>
                             <div className="inventory-list__container__top__box-functionality__bottom">
-                                <button className="inventory-list__container__top__box-functionality__bottom--add-item">+ Add New Item</button>
+                                <button onClick={add} className="inventory-list__container__top__box-functionality__bottom--add-item">+ Add New Item</button>
                             </div>
                         </div>
                     </div> 
@@ -118,7 +118,11 @@ const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon }) 
                                         <button id={inventoryList.itemName} type='button' onClick={deleteItem}>
                                             <img id={inventoryList.id} src={deleteIcon}/>
                                         </button>
-                                        <img className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" src={editBlue}/>
+                                        <img 
+                                            className="inventory-list__wrapper-inventory__container__top--two--actions-tablet--icon" 
+                                            src={editBlue}
+                                            onClick={edit}
+                                            id={inventoryList.id}/>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +130,7 @@ const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon }) 
                                 <button id={inventoryList.itemName} type='button' onClick={deleteItem}>
                                     <img id={inventoryList.id} src={deleteIcon}/>
                                 </button>
-                                <img src={editBlue}/>
+                                <img src={editBlue} onClick={edit} id={inventoryList.id}/>
                             </div>
                         </div>
                     </li>

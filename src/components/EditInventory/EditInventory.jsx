@@ -20,10 +20,12 @@ const EditInventory = () => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
 
+  const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
   useEffect(() => {
     const fetchItemData = async () => {
       try {
-        const response = await axios.get(`/api/inventory/${id}`);
+        const response = await axios.get(`${baseUrl}/api/inventory/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching item data", error);
@@ -32,7 +34,7 @@ const EditInventory = () => {
 
     const fetchWarehouses = async () => {
       try {
-        const response = await axios.get("/api/warehouses");
+        const response = await axios.get(`${baseUrl}/api/warehouses`);
         if (Array.isArray(response.data)) {
           setWarehouses(response.data);
         } else {
@@ -93,6 +95,8 @@ const EditInventory = () => {
     return newErrors;
   };
 
+  const returnToInventory = () => { return( navigate('/inventory') )}
+
   return (
     <form className="inventory-form2" onSubmit={handleSubmit}>
       <div className="inventory-form2__header">
@@ -100,6 +104,7 @@ const EditInventory = () => {
           src="/src/assets/icons/arrow_back-24px.svg"
           alt="Go back"
           className="inventory-form2__icon"
+          onClick={returnToInventory}
         />
         <h2 className="inventory-form2__title">Edit Inventory Item</h2>
       </div>
@@ -240,6 +245,7 @@ const EditInventory = () => {
         <button
           type="button"
           className="inventory-form2__button inventory-form2__button--cancel"
+          onClick={returnToInventory}
         >
           Cancel
         </button>
