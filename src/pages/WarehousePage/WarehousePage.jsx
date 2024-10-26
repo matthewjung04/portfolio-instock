@@ -38,27 +38,28 @@ const WarehousePage = () => {
         }
     };
 
-    useEffect(() => {
-        const sortInventory = async () => {
-            if (descSort) {
-                await axios
-                    .get(`http://localhost:8080/api/warehouses?sort_by=${column}&order_by=desc`)
-                    .then((res) => {
-                        setWarehouseDetails(res.data);
-                        return setWarehouseDetails;
-                    })
-            } else {
-                await axios
-                    .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`)
-                    .then((res) => {
-                        setWarehouseDetails(res.data);
-                        return setWarehouseDetails;
-                    })
 
-            }
+
+    //Sorts warehouses inventory list function
+
+    const sortWarehousesInventoryList = async () => {
+        if (descSort) {
+            await axios
+                .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=desc`)
+                .then((res) => {
+                    setWarehouseDetails(res.data);
+                    return setWarehouseDetails;
+                })
+        } else {
+            await axios
+                .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`)
+                .then((res) => {
+                    setWarehouseDetails(res.data);
+                    return setWarehouseDetails;
+                })
         }
-        sortInventory();
-    },[ascSort, descSort])
+    };
+
 
     const fetchWarehouseDetails = async (warehouseSelectedId) => {
         try {

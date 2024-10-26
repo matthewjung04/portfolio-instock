@@ -6,7 +6,7 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import sortDefault from "../../assets/icons/sort-24px.svg";
 import './WarehouseInventoryList.scss'
 import DeleteInventory from "../DeleteInventory/DeleteInventory";
-const WarehouseInventoryList = ({ warehouseInventory }) => {
+const WarehouseInventoryList = ({ warehouseInventory, sorted }) => {
 
     const [itemName, setItemName] = useState(null);
     const [deleteId, setDeleteId] = useState(null);

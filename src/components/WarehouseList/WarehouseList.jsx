@@ -37,25 +37,30 @@ function WarehouseList({ add, edit}) {
     }
   }
 
-  useEffect(() => {
-    const sortWarehouses = async () => {
-        if (descSort) {
-            await axios
-                .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=desc`)
-                .then((res) => {
-                  setWarehouses(res.data);
-                    return setWarehouses;
-                })
-        } else {
-            await axios
-                .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`)
-                .then((res) => {
-                    setWarehouses(res.data);
-                    return setWarehouses;
-                })
+  const sortWarehouses = async () => {
+    if (descSort) {
+        try {
+        const { data } = await axios.get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=desc`);
+        setWarehouses(data);
+        return setWarehouses;
+      }
+      catch(error) {
+        console.log(error);
+      }
 
-        }
+    } else {
+      try {
+        const { data } = await axios.get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`);
+        setWarehouses(data);
+        return setWarehouses;
+      }
+      catch(error) {
+        console.log(error);
+      }
     }
+};
+
+  useEffect(() => {
     sortWarehouses();
 },[ascSort, descSort])
 
