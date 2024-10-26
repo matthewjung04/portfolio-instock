@@ -7,9 +7,7 @@
   font-size: 11px;
   line-height: 16px;
   color: $slate;
-
-  left: 5rem;
-
+  text-align: center;
   padding: 40px 0;
   width: auto;
   position: relative;
@@ -17,6 +15,7 @@
   @include tablet {
     font-size: 12px;
     line-height: 18px;
+    text-align: center;
     left: 0;
   }
 
@@ -27,4 +26,3 @@
     left: 0;
   }
 }
-

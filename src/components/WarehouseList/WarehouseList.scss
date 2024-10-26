@@ -199,7 +199,15 @@ button {
 
   @include tablet {
     margin: 0 32px;
+    justify-self: center;
+    width: 44rem;
+    margin: 0 auto;
     margin-top: -93px;
+
+    @include desktop {
+      margin: 0 32px;
+      margin-top: -93px;
+    }
 
     &__header {
       padding: 24px 36px 0 36px;
@@ -236,6 +244,9 @@ button {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
+          align-items: center;
+          width: 230px;
+
           align-items: center;
           width: 230px;
 
