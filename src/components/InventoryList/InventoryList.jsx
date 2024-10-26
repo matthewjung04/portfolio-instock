@@ -19,7 +19,7 @@ const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon, ad
         var deletePopup = document.getElementById("deleteInventoryModal");
         deletePopup.style.display = "block";
     }
-
+    console.log(inventoryDetails)
     return (
         <>
             <DeleteInventory

@@ -4,25 +4,28 @@ import { useNavigate } from "react-router-dom";
 import "./AddInventory.scss";
 
 const AddInventory = () => {
+
+  const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
   const [formData, setFormData] = useState({
     item_name: "",
     description: "",
     category: "",
-    status: "In Stock",
+    status: "In STOCK",
     quantity: "",
     warehouse: "",
   });
-
+  console.log(formData)
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
-
+  console.log(formData)
   useEffect(() => {
     const fetchWarehouses = async () => {
       try {
-        const response = await axios.get("/api/warehouses");
+        const response = await axios.get(`${baseUrl}/api/warehouses`);
         if (Array.isArray(response.data)) {
           setWarehouses(response.data);
         } else {
@@ -35,7 +38,7 @@ const AddInventory = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("/api/categories");
+        const response = await axios.get(`${baseUrl}/api/inventories`);
         if (Array.isArray(response.data)) {
           setCategories(response.data);
         } else {
@@ -58,14 +61,21 @@ const AddInventory = () => {
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.post("/api/inventory", formData);
+        const response = await axios.post(`${baseUrl}/api/inventories`, {
+          warehouse_id: formData.warehouse,
+          item_name: formData.item_name,
+          description: formData.description,
+          category: formData.category,
+          status: formData.status,
+          quantity: formData.quantity,
+        });
         if (response.status === 201) {
           setSuccessMessage("Item added successfully!");
           setFormData({
             item_name: "",
             description: "",
             category: "",
-            status: "In Stock",
+            status: "IN STOCK",
             quantity: "",
             warehouse: "",
           });
@@ -84,7 +94,7 @@ const AddInventory = () => {
     if (!data.item_name) newErrors.item_name = "Item name is required";
     if (!data.description) newErrors.description = "Description is required";
     if (!data.category) newErrors.category = "Category is required";
-    if (data.status === "In Stock" && !data.quantity)
+    if (data.status === "IN STOCK" && !data.quantity)
       newErrors.quantity = "Quantity is required";
     if (!data.warehouse) newErrors.warehouse = "Warehouse is required";
     return newErrors;
@@ -147,8 +157,8 @@ const AddInventory = () => {
             >
               <option value="">Please select</option>
               {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
+                <option value={category.category}>
+                  {category.category}
                 </option>
               ))}
             </select>
@@ -167,9 +177,9 @@ const AddInventory = () => {
                 <input
                   type="radio"
                   value="In Stock"
-                  checked={formData.status === "In Stock"}
+                  checked={formData.status === "IN STOCK"}
                   onChange={() =>
-                    setFormData({ ...formData, status: "In Stock" })
+                    setFormData({ ...formData, status: "IN STOCK" })
                   }
                 />
                 In Stock
@@ -178,9 +188,9 @@ const AddInventory = () => {
                 <input
                   type="radio"
                   value="Out of Stock"
-                  checked={formData.status === "Out of Stock"}
+                  checked={formData.status === "OUT OF STOCK"}
                   onChange={() =>
-                    setFormData({ ...formData, status: "Out of Stock" })
+                    setFormData({ ...formData, status: "OUT OF STOCK" })
                   }
                 />
                 Out of Stock
@@ -188,7 +198,7 @@ const AddInventory = () => {
             </div>
           </label>
 
-          {formData.status === "In Stock" && (
+          {formData.status === "IN STOCK" && (
             <label className="inventory-form__label">
               <h3 className="inventory-form__label-text">Quantity</h3>
               <input
