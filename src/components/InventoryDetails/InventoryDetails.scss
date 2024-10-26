@@ -1,0 +1,180 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../App.scss' as *;
+@use '../../styles/partials/media-query' as *;
+
+.inventory-details {
+    @include page-layout;
+
+    @include tablet {
+        margin: 0 2rem;
+    }
+
+    @include desktop {
+        @include desktop-layout(0);
+        max-width: 63.75rem;
+    }
+
+    &__container {
+        @include display-layout(1.5rem 0, 0 1.5rem);
+
+        @include tablet {
+            @include display-layout(2rem 0 1.35rem 0, 0 2rem);
+        }
+
+        @include desktop {
+            padding-bottom: 1.375rem;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            margin: 0;
+        }
+
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            &__box {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+
+                &--arrow {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    cursor: pointer;
+                }
+            }
+            
+            &__box-edit {
+
+                @include tablet {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+                &--icon {
+                    background-color: $instock-indigo;
+                    border-radius: 100%;
+                    padding: 0.5rem;
+
+                    &:hover {
+                        background-color: $graphite;
+                    }
+    
+                    @include tablet {
+                        width: 5.06rem;
+                        height: 2.375rem;
+                        border-radius: 1.25rem;
+                        padding-right: 2.25rem;
+                    }
+                }
+
+                &--text {
+                    display: none;
+
+                    @include tablet {
+                        display: block;
+                        position: absolute;
+                        color: $white;
+                        right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        border-top: 0.0625rem solid $cloud;
+    
+        &__container {
+            @include display-layout($mobile-padding 0, 0 2.25rem 0 1.5rem);
+
+            @include tablet {
+                @include display-layout($tablet-padding 0, 0 3.75rem 0 2rem);
+                display: flex;
+            }
+
+            @include desktop {
+                margin-left: 2.5rem;
+            }
+
+            &__top {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                @include tablet {
+                    border-right:0.0625rem solid $cloud;
+                    gap: 1.5rem;
+                    width: 50%;
+                }
+
+                @include desktop {
+                    width: 50%;
+                }
+
+                &--description {
+                    @include tablet {
+                        width: 90%;
+                    }
+
+                    @include desktop {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &__info {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+
+                @include tablet {
+                    margin-top: 0;
+                    width: 56%;
+                    padding-left: 2rem;
+                    gap: 2rem;
+                }
+
+                @include desktop {
+                    width: 50%;
+                }
+
+                &__one{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    width: 56.5%;
+
+                    @include tablet {
+                        width: 50%;
+                        gap: 1.5rem;
+                    }
+                    &--header {
+                        padding-bottom: 0.25rem;
+                    }
+
+                    &--text {
+                        &--instock {
+                            @include instock-tag;
+                        }
+    
+                        &--outstock {
+                            @include outstock-tag;
+                        }
+                    }
+                }
+
+                &__two {
+                    width: 7.3rem;
+
+                    @include desktop {
+                        width: 9.3rem;
+                    }
+                }
+
+            }
+        }
+    }
+}
