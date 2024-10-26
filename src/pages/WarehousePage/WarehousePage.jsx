@@ -13,8 +13,6 @@ const WarehousePage = () => {
     const { id } = useParams();
     const [warehouseDetails, setWarehouseDetails] = useState(null);
     const [warehouseInventoryList, setWarehouseInventoryList] = useState(null);
-    const [hasAdded, setHasAdded] = useState(false);
-    const [hasEdited, setHasEdited] = useState(false);
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 

@@ -3,7 +3,6 @@ import chevron from "../../assets/icons/chevron_right-24px.svg";
 import editBlue from "../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import sortDefault from "../../assets/icons/sort-24px.svg";
-import DeleteInventory from "../DeleteInventory/DeleteInventory";
 import './WarehouseInventoryList.scss'
 const WarehouseInventoryList = ({ warehouseInventory }) => {
 
@@ -58,10 +57,10 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
                                 <div className="warehouse-details__wrapper-inventory__container__top--one">
                                     <div className="warehouse-details__wrapper-inventory__container__top--one--item">
                                         <h4 className="warehouse-details__wrapper-inventory__container__top--one--item--header">INVENTORY ITEM</h4>
-                                        <div className="warehouse-details__wrapper-inventory__container__top--one--item--box">
-                                            <h3 className="warehouse-details__wrapper-inventory__container__top--one--item--box--name">{inventory.item_name}</h3>
+                                        <Link className="warehouse-details__wrapper-inventory__container__top--one--item--box" to={`/inventory/${inventory.id}`}>
+                                            <h4 className="warehouse-details__wrapper-inventory__container__top--one--item--box--name">{inventory.item_name}</h4>
                                             <img className="warehouse-details__wrapper-inventory__container__top--one--item--box--icon" src={chevron}/>
-                                        </div>
+                                        </Link>
                                     </div>
                                     <div className="warehouse-details__wrapper-inventory__container__top--one--category">
                                         <h4 className="warehouse-details__wrapper-inventory__container__top--one--category--header">CATEGORY</h4>
