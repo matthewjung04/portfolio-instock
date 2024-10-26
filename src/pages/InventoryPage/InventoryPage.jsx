@@ -14,14 +14,36 @@ const InventoryPage = () => {
     const [ascSort, setAscSort] = useState(false);
     const [descSort, setDescSort] = useState(false);
     const [column, setColumn] = useState('');
+    const [searchKey, setSearchKey] = useState('');
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
     const searchResults = (e) => {
         if(e.key==='Enter') {
-            console.log(e.target.value)
+            setSearchKey(e.target.value);
         }
     }
+
+    const searchResultsClick = () => {
+        var searchInput = document.getElementsByTagName("input")[0].value;
+        setSearchKey(searchInput);
+    }
+
+    useEffect(() => {
+        const fetchSearch = async () => {
+            if(searchKey) {
+                await axios
+                    .get(`${baseUrl}/api/inventories?s=${searchKey}`)
+                    .then((res) => {
+                        setInventoryList(res.data);
+                    })
+                    .then(() => {
+                        setSearchKey('');
+                    })
+            }
+        }
+        fetchSearch();
+    },[searchKey])
 
     const sortList = (e) => {
         if (column != e.target.id) {
@@ -82,6 +104,7 @@ const InventoryPage = () => {
                 inventoryDetails = {inventoryList}
                 sorting = {sortList}
                 searching = {searchResults}
+                searchingIcon={searchResultsClick}
             />: <InventoryDetails />
             }
         </main>
