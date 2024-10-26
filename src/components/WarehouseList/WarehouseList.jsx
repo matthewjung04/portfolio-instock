@@ -17,6 +17,7 @@ function WarehouseList({ add, edit}) {
   const [ascSort, setAscSort] = useState(false);
   const [descSort, setDescSort] = useState(false);
   const [column, setColumn] = useState('');
+  const [searchKey, setSearchKey] = useState('');
 
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
