@@ -45,25 +45,50 @@ function InventoryDetails() {
   const editInventoryID = () => {return(navigate(`/inventory/${inventoryData.id}/edit`))}
 
   return (
-    <section>
-      <div>
-        <button><img src={backArrow} onClick={returnToInventory}/></button>
-        <h1>{inventoryData.item_name}</h1>
-        <button><img src={editIcon} onClick={editInventoryID}/></button>
-      </div>
-      <div>
-        <h4>ITEM DESCRIPTION:</h4>
-        <p>{inventoryData.description}</p>
-        <h4>CATEGORY:</h4>
-        <p>{inventoryData.category}</p>
-      </div>
-      <div>
-        <div>
-          <h4></h4>
-          
+    <section className="inventory-details">
+      <div className="inventory-details__container">
+        <div className="inventory-details__container__top">
+          <div className="inventory-details__container__top__box">
+            <img className="inventory-details__container__box--arrow" src={backArrow} onClick={returnToInventory}/>
+            <h1 className="inventory-details__container__box--title">{inventoryData.item_name}</h1>
+          </div>
+          <button className="inventory-details__container__top__box-edit">
+            <img className="inventory-details__container__top__box-edit--icon" src={editIcon} onClick={editInventoryID}/>
+            <h3 className="inventory-details__container__top__box-edit--text">Edit</h3>
+          </button>
         </div>
-        <h4>WAREHOUSE</h4>
-        <p>{warehouseName}</p>
+      </div>
+      <div className="inventory-details__wrapper">
+        <div className="inventory-details__wrapper__container">
+          <div className="inventory-details__wrapper__container__top">
+            <div>
+              <h4>ITEM DESCRIPTION:</h4>
+              <p className="inventory-details__wrapper__container__top--description p2">{inventoryData.description}</p>
+            </div>
+            <div>
+              <h4>CATEGORY:</h4>
+              <p className="p2">{inventoryData.category}</p>
+            </div>  
+          </div>
+          <div className="inventory-details__wrapper__container__info">
+            <div className="inventory-details__wrapper__container__info__one">
+              <div>
+              <h4 className="inventory-details__wrapper__container__info__one--header">STATUS:</h4>
+                <h4 className={`inventory-details__wrapper__container__info__one--text${
+                    inventoryData.status === "IN STOCK" ? "--instock" : "--outstock"
+                }`}>{inventoryData.status}</h4>
+              </div>
+              <div>
+                <h4>WAREHOUSE:</h4>
+                <p className="p2">{warehouseName}</p>
+              </div>
+            </div>
+            <div className="inventory-details__wrapper__container__info__two">
+              <h4>QUANTITY:</h4>
+              <p className="p2">{inventoryData.quantity}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
