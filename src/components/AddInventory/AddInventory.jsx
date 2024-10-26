@@ -11,7 +11,7 @@ const AddInventory = () => {
     item_name: "",
     description: "",
     category: "",
-    status: "In STOCK",
+    status: "IN STOCK",
     quantity: "",
     warehouse: "",
   });
