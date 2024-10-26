@@ -8,6 +8,7 @@ import './WarehouseInventoryList.scss'
 import DeleteInventory from "../DeleteInventory/DeleteInventory";
 import EditInventory from "../EditInventory/EditInventory";
 const WarehouseInventoryList = ({ warehouseInventory, editItem }) => {
+const WarehouseInventoryList = ({ warehouseInventory, sorted }) => {
 
     const [itemName, setItemName] = useState(null);
     const [deleteId, setDeleteId] = useState(null);
@@ -32,21 +33,21 @@ const WarehouseInventoryList = ({ warehouseInventory, editItem }) => {
                     <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one">
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--inventory">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">INVENTORY ITEM</h4>
-                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                            <img id="item_name" className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorted}/>
                         </div>
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">CATEGORY</h4>
-                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                            <img id="category" className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorted}/>
                         </div>
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--header">STATUS</h4>
-                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                            <img id="status" className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorted}/>
                         </div>
                     </div>
                     <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two">
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--quantity">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">QUANTITY</h4>
-                            <img className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault}/>
+                            <img id="quantity" className="warehouse-details__wrapper-inventory__labels-tablet__container-one__box--icon" src={sortDefault} onClick={sorted}/>
                         </div>
                         <div className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--actions">
                             <h4 className="warehouse-details__wrapper-inventory__labels-tablet__container-two__box--header">ACTIONS</h4>
@@ -61,7 +62,7 @@ const WarehouseInventoryList = ({ warehouseInventory, editItem }) => {
                                     <div className="warehouse-details__wrapper-inventory__container__top--one--item">
                                         <h4 className="warehouse-details__wrapper-inventory__container__top--one--item--header">INVENTORY ITEM</h4>
                                         <Link className="warehouse-details__wrapper-inventory__container__top--one--item--box" to={`/inventory/${inventory.id}`}>
-                                            <h4 className="warehouse-details__wrapper-inventory__container__top--one--item--box--name">{inventory.item_name}</h4>
+                                            <h3 className="warehouse-details__wrapper-inventory__container__top--one--item--box--name">{inventory.item_name}</h3>
                                             <img className="warehouse-details__wrapper-inventory__container__top--one--item--box--icon" src={chevron}/>
                                         </Link>
                                     </div>
