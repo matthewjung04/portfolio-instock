@@ -82,7 +82,7 @@ const InventoryList = ({ inventoryDetails, sorting, searching, searchingIcon, ad
                                         <h4 className="inventory-list__wrapper-inventory__container__top--one--item--header">INVENTORY ITEM</h4>
                                         <Link className="inventory-list__wrapper-inventory__container__top--one--item--box" to={`/inventory/${inventoryList.id}`}>
                                             <h3 className="inventory-list__wrapper-inventory__container__top--one--item--box--name">{inventoryList.itemName}</h3>
-                                            <img className="inventory-list__wrapper-inventory__container__top--one--item--box--icon" src={chevron}/>
+                                            <img className="inventory-list__wrapper-inventory__container__top--one--item--box--icon, chevron" src={chevron}/>
                                         </Link>     
                                     </div>
                                     <div className="inventory-list__wrapper-inventory__container__top--one--category">

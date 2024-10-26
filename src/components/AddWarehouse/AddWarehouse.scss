@@ -20,6 +20,10 @@ body {
     padding-right: 0;
   }
 
+  @media (min-width: $desktop) {
+    width: 64rem;
+  }
+
   &__add {
     display: flex;
     justify-content: center;
