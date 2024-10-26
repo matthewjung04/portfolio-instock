@@ -37,6 +37,7 @@ function WarehouseList({ add, edit}) {
     }
   }
 
+  //Sort warehouses function
   const sortWarehouses = async () => {
     if (descSort) {
         try {
@@ -62,7 +63,7 @@ function WarehouseList({ add, edit}) {
 
   useEffect(() => {
     sortWarehouses();
-},[ascSort, descSort])
+  },[ascSort, descSort])
 
   const deleteHandler = (e) => {
     setWarehouseName(e.target.parentElement.id)
