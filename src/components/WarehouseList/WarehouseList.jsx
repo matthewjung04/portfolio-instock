@@ -14,6 +14,50 @@ function WarehouseList({ add, edit}) {
   let [warehouses, setWarehouses] = useState([]);
   let [warehouseName, setWarehouseName] = useState("");
   let [deleteID, setDeleteID] = useState(0);
+  const [ascSort, setAscSort] = useState(false);
+  const [descSort, setDescSort] = useState(false);
+  const [column, setColumn] = useState('');
+
+  const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
+
+  const sortList = (e) => {
+    if (column != e.target.id) {
+        setColumn(e.target.id);
+        setAscSort(true)
+    } else if (column === e.target.id) {
+        if(!descSort) {
+            setAscSort(false);
+            setDescSort(true);
+        } else if (descSort) {
+            setAscSort(false);
+            setDescSort(false);
+        }
+
+    }
+  }
+
+  useEffect(() => {
+    const sortWarehouses = async () => {
+        if (descSort) {
+            await axios
+                .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=desc`)
+                .then((res) => {
+                  setWarehouses(res.data);
+                    return setWarehouses;
+                })
+        } else {
+            await axios
+                .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`)
+                .then((res) => {
+                    setWarehouses(res.data);
+                    return setWarehouses;
+                })
+
+        }
+    }
+    sortWarehouses();
+},[ascSort, descSort])
 
   const deleteHandler = (e) => {
     setWarehouseName(e.target.parentElement.id)
@@ -61,10 +105,10 @@ function WarehouseList({ add, edit}) {
         <table className='warehouses__list'>
           <thead>
             <tr>
-              <th>WAREHOUSE<img id="sort" src={sort}/></th>
-              <th>ADDRESS<img id="sort" src={sort}/></th>
-              <th>CONTACT NAME<img id="sort" src={sort}/></th>
-              <th>CONTACT INFORMATION<img id="sort" src={sort}/></th>
+              <th>WAREHOUSE<img id="warehouse_name" className="sort-icon" src={sort} onClick={sortList}/></th>
+              <th>ADDRESS<img id="address" className="sort-icon" src={sort} onClick={sortList}/></th>
+              <th>CONTACT NAME<img id="contact_name" className="sort-icon" src={sort} onClick={sortList}/></th>
+              <th>CONTACT INFORMATION<img id="contact_email" className="sort-icon" src={sort} onClick={sortList}/></th>
               <th>ACTIONS</th>
             </tr>
           </thead>

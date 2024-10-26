@@ -13,10 +13,52 @@ const WarehousePage = () => {
     const { id } = useParams();
     const [warehouseDetails, setWarehouseDetails] = useState(null);
     const [warehouseInventoryList, setWarehouseInventoryList] = useState(null);
+    const [ascSort, setAscSort] = useState(false);
+    const [descSort, setDescSort] = useState(false);
+    const [column, setColumn] = useState('');
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
     const navigate = useNavigate();
+
+    //Function to sort the columns
+    const sortList = (e) => {
+        if (column != e.target.id) {
+            setColumn(e.target.id);
+            setAscSort(true)
+        } else if (column === e.target.id) {
+            if(!descSort) {
+                setAscSort(false);
+                setDescSort(true);
+            } else if (descSort) {
+                setAscSort(false);
+                setDescSort(false);
+            }
+
+        }
+    };
+
+    useEffect(() => {
+        const sortInventory = async () => {
+            if (descSort) {
+                await axios
+                    .get(`http://localhost:8080/api/warehouses?sort_by=${column}&order_by=desc`)
+                    .then((res) => {
+                        setWarehouseDetails(res.data);
+                        return setWarehouseDetails;
+                    })
+            } else {
+                await axios
+                    .get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`)
+                    .then((res) => {
+                        setWarehouseDetails(res.data);
+                        return setWarehouseDetails;
+                    })
+
+            }
+        }
+        sortInventory();
+    },[ascSort, descSort])
 
     const fetchWarehouseDetails = async (warehouseSelectedId) => {
         try {
@@ -76,12 +118,14 @@ const WarehousePage = () => {
                     />
                     <WarehouseInventoryList
                         warehouseInventory = {warehouseInventoryList}
+                        sorted = {sortList}
                     /> 
                 </>
             ) : (
                     <WarehouseList
                         add = {addHandler}
                         edit = {editHandler}
+                        sorted = {sortList}
                     />
             )}
         </main>
