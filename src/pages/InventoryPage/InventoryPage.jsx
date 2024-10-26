@@ -17,6 +17,12 @@ const InventoryPage = () => {
 
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
+    const searchResults = (e) => {
+        if(e.key==='Enter') {
+            console.log(e.target.value)
+        }
+    }
+
     const sortList = (e) => {
         if (column != e.target.id) {
             setColumn(e.target.id);
@@ -75,6 +81,7 @@ const InventoryPage = () => {
             { inventoryList && !id ? <InventoryList 
                 inventoryDetails = {inventoryList}
                 sorting = {sortList}
+                searching = {searchResults}
             />: <InventoryDetails />
             }
         </main>

@@ -4,7 +4,6 @@ import "./DeleteInventory.scss"
 
 const DeleteInventory = ({ itemName, id }) => {
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-    console.log(id)
 
     const returnInventoryPage = () => {
         var deletePopup = document.getElementById("deleteInventoryModal");

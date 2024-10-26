@@ -2,6 +2,7 @@ import { url } from '../../utils/utils.jsx'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import searchSVG from '../../assets/icons/search-24px.svg'
 import editSVG from '../../assets/icons/edit-24px.svg'
 import deleteSVG from '../../assets/icons/delete_outline-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
@@ -42,12 +43,15 @@ function WarehouseList({ add, edit}) {
         <article className='warehouses__header'>
           <h1>Warehouses</h1>
           <div className='warehouses__header__nav'>
-            <input
-              className='warehouses__header__nav__search'
-              type='text'
-              name='search' 
-              placeholder='Search...'
-            />
+            <button>
+              <input className='warehouses__header__nav__search'
+                type='text'
+                name='search' 
+                placeholder='Search...'
+              />
+              <img src={searchSVG}/>
+            </button>
+
             <button className='warehouses__header__nav__add' type='button' onClick={add}>
               + Add New Warehouse
             </button>
