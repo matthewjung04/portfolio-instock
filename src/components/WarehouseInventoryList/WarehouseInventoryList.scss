@@ -231,3 +231,10 @@
         }
     }
 }
+
+.chevron {
+    transition: transform 0.3s ease;
+  }
+#Link:hover .chevron {
+    transform: translateX(4px);
+}

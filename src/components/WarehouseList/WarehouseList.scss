@@ -261,7 +261,9 @@ button {
   }
 
   @include desktop {
-    margin: -95px 200px;
+    position: relative;
+    width: 64rem;
+    margin: -95px auto;
     margin-bottom: 200px;
 
     &__list {
@@ -301,4 +303,11 @@ button {
       }
     }
   }
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+#link:hover .chevron {
+  transform: translateX(4px);
 }

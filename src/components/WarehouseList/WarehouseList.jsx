@@ -157,7 +157,7 @@ function WarehouseList({ add, edit}) {
                           <h4 id='titles'>WAREHOUSE</h4>
                           <Link to={`/warehouses/${warehouse.id}`} id='link'>
                           {warehouse.warehouse_name}
-                            <img src={chevron}/>
+                            <img src={chevron} className='chevron'/>
                           </Link>
                         </div>
                         <div className='warehouses__list__rows__top__item'>
