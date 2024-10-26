@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import './InventoryPage.scss'
 import InventoryList from '../../components/InventoryList/InventoryList';
 import InventoryDetails from "../../components/InventoryDetails/InventoryDetails";
@@ -96,6 +96,17 @@ const InventoryPage = () => {
         fetchInventoryList();
     }, []);
 
+    const navigate = useNavigate();
+
+    const addHandler = () => {
+        navigate('/inventory/add')
+    }
+
+    const editHandler = (e) => {
+        const editID = e.target.id;
+        navigate(`/inventory/${editID}/edit`);
+    }
+
     return (
         <main className="inventory-page">
             { inventoryList && !id ? <InventoryList 
@@ -103,6 +114,8 @@ const InventoryPage = () => {
                 sorting = {sortList}
                 searching = {searchResults}
                 searchingIcon={searchResultsClick}
+                add={addHandler}
+                edit={editHandler}
             />: <InventoryDetails />
             }
         </main>

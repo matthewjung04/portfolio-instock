@@ -5,8 +5,6 @@ import './WarehousePage.scss'
 import WarehouseList from '../../components/WarehouseList/WarehouseList'
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
 import WarehouseInventoryList from '../../components/WarehouseInventoryList/WarehouseInventoryList';
-import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
-import EditWarehouse from '../../components/EditWarehouse/EditWarehouse';
 
 const WarehousePage = () => {
 
@@ -58,6 +56,11 @@ const WarehousePage = () => {
         const editID = e.target.parentElement.id;
         navigate(`/warehouses/${editID}/edit`);
     }
+
+    const editInventoryHandler = (e) => {
+        const editID = e.target.id;
+        navigate(`/inventory/${editID}/edit`);
+    }
     
     return (
         <main className="warehouse-page">
@@ -76,6 +79,7 @@ const WarehousePage = () => {
                     />
                     <WarehouseInventoryList
                         warehouseInventory = {warehouseInventoryList}
+                        editItem={editInventoryHandler}
                     /> 
                 </>
             ) : (
