@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { url } from '../../utils/utils.jsx'
@@ -8,6 +8,7 @@ import './InventoryDetails.scss'
 
 function InventoryDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   let [inventoryData, setInventoryData] = useState({});
   let [warehouseID, setWarehouseID] = useState(0);
   let [warehouseName, setWarehouseName] = useState('');
@@ -39,12 +40,16 @@ function InventoryDetails() {
     fetchWarehouseName();
   },[warehouseID])
 
+  const returnToInventory = () => {return(navigate('/inventory'))}
+
+  const editInventoryID = () => {return(navigate(`/inventory/${inventoryData.id}/edit`))}
+
   return (
     <section>
       <div>
-        <button><img src={backArrow}/></button>
+        <button><img src={backArrow} onClick={returnToInventory}/></button>
         <h1>{inventoryData.item_name}</h1>
-        <button><img src={editIcon}/></button>
+        <button><img src={editIcon} onClick={editInventoryID}/></button>
       </div>
       <div>
         <h4>ITEM DESCRIPTION:</h4>

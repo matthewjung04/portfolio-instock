@@ -20,10 +20,12 @@ const EditInventory = () => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
 
+  const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
   useEffect(() => {
     const fetchItemData = async () => {
       try {
-        const response = await axios.get(`/api/inventory/${id}`);
+        const response = await axios.get(`${baseUrl}/api/inventory/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching item data", error);
@@ -32,7 +34,7 @@ const EditInventory = () => {
 
     const fetchWarehouses = async () => {
       try {
-        const response = await axios.get("/api/warehouses");
+        const response = await axios.get(`${baseUrl}/api/warehouses`);
         if (Array.isArray(response.data)) {
           setWarehouses(response.data);
         } else {
