@@ -90,6 +90,8 @@ const AddInventory = () => {
     return newErrors;
   };
 
+  const returnToInventory = () => { return( navigate('/inventory') )}
+
   return (
     <form className="inventory-form" onSubmit={handleSubmit}>
       <div className="inventory-form__header">
@@ -97,6 +99,7 @@ const AddInventory = () => {
           src="/src/assets/icons/arrow_back-24px.svg"
           alt="Go back"
           className="inventory-form__icon"
+          onClick={returnToInventory}
         />
         <h2 className="inventory-form__title">Add New Inventory Item</h2>
       </div>
@@ -235,6 +238,7 @@ const AddInventory = () => {
         <button
           type="button"
           className="inventory-form__button inventory-form__button--cancel"
+          onClick={returnToInventory}
         >
           Cancel
         </button>
