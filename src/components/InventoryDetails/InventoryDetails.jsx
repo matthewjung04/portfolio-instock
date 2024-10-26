@@ -11,15 +11,17 @@ function InventoryDetails() {
   let [inventoryData, setInventoryData] = useState({})
   
   useEffect(() => {
-    const fetchInventory = async () => {  
-      await axios
-      .get(`${url}/api/inventories/${id}`)
-      .then((res) => {
-        setInventoryData(res.data);
-      })
+    const fetchInventory = async () => {
+      if(id) {
+        await axios
+        .get(`${url}/api/inventories/${id}`)
+        .then((res) => {
+          setInventoryData(res.data);
+        })
+      }
     }
     fetchInventory();
-  },[])
+  },[id])
 
   return (
     <section>

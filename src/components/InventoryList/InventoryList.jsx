@@ -8,7 +8,7 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 import DeleteInventory from '../DeleteInventory/DeleteInventory';
 import './InventoryList.scss'
 
-const InventoryList = ({ inventoryDetails, sorting }) => {
+const InventoryList = ({ inventoryDetails, sorting, searching }) => {
     
     const [itemName, setItemName] = useState(null);
     const [deleteId, setDeleteId] = useState(null);
@@ -36,7 +36,7 @@ const InventoryList = ({ inventoryDetails, sorting }) => {
                         <div className="inventory-list__container__top__box-functionality">
                             <div className="inventory-list__container__top__box-functionality--search-bar">
                                 <img className="inventory-list__container__top__box-functionality--search-bar--icon" src={searchIcon}/>
-                                <input className="inventory-list__container__top__box-functionality--search-bar--input p2" type="text" name="search" placeholder="Search..."/>
+                                <input onKeyDown={searching} className="inventory-list__container__top__box-functionality--search-bar--input p2" type="text" name="search" placeholder="Search..."/>
                             </div>
                             <div className="inventory-list__container__top__box-functionality__bottom">
                                 <button className="inventory-list__container__top__box-functionality__bottom--add-item">+ Add New Item</button>
