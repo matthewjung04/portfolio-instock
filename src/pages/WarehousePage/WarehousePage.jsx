@@ -40,7 +40,7 @@ const WarehousePage = () => {
     const sortWarehousesInventoryList = async () => {
         if (descSort) {
             try {
-            const { data } = await axios.get(`${baseUrl}/api/warehouses/${id}/inventories?sort_by=${column}&order_by=desc`);
+            const { data } = await axios.get(`${baseUrl}api/warehouses/${id}/inventories?sort_by=${column}&order_by=desc`);
             setWarehouseInventoryList(data);
             return setWarehouseInventoryList;
           }
@@ -50,7 +50,7 @@ const WarehousePage = () => {
     
         } else {
           try {
-            const { data } = await axios.get(`${baseUrl}/api/warehouses/${id}/inventories?sort_by=${column}&order_by=asc`);
+            const { data } = await axios.get(`${baseUrl}api/warehouses/${id}/inventories?sort_by=${column}&order_by=asc`);
             setWarehouseInventoryList(data);
             return setWarehouseInventoryList;
           }
@@ -67,7 +67,7 @@ const WarehousePage = () => {
 
     const fetchWarehouseDetails = async (warehouseSelectedId) => {
         try {
-            const { data } = await axios.get(baseUrl + "/api/warehouses/" + warehouseSelectedId);
+            const { data } = await axios.get(baseUrl + "api/warehouses/" + warehouseSelectedId);
             setWarehouseDetails(data);
             return setWarehouseDetails;
         }
@@ -78,7 +78,7 @@ const WarehousePage = () => {
 
     const fetchWarehouseInventoryList = async (warehouseSelectedId) => {
         try {
-            const { data } = await axios.get(baseUrl + "/api/warehouses/" + warehouseSelectedId + "/inventories");
+            const { data } = await axios.get(baseUrl + "api/warehouses/" + warehouseSelectedId + "/inventories");
             setWarehouseInventoryList(data);
             return setWarehouseInventoryList;
         }

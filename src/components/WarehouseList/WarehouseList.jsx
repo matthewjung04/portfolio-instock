@@ -42,7 +42,7 @@ function WarehouseList({ add, edit}) {
   const sortWarehouses = async () => {
     if (descSort) {
         try {
-        const { data } = await axios.get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=desc`);
+        const { data } = await axios.get(`${baseUrl}api/warehouses?sort_by=${column}&order_by=desc`);
         setWarehouses(data);
         return setWarehouses;
       }
@@ -52,7 +52,7 @@ function WarehouseList({ add, edit}) {
 
     } else {
       try {
-        const { data } = await axios.get(`${baseUrl}/api/warehouses?sort_by=${column}&order_by=asc`);
+        const { data } = await axios.get(`${baseUrl}api/warehouses?sort_by=${column}&order_by=asc`);
         setWarehouses(data);
         return setWarehouses;
       }
@@ -86,7 +86,7 @@ function WarehouseList({ add, edit}) {
     const fetchSearch = async () => {
         if(searchKey) {
             await axios
-                .get(`${url}/api/warehouses?s=${searchKey}`)
+                .get(`${url}api/warehouses?s=${searchKey}`)
                 .then((res) => {
                     setWarehouses(res.data);
                 })
@@ -101,7 +101,7 @@ function WarehouseList({ add, edit}) {
   useEffect(() => {
     const fetchWarehouses = async () => {
       await axios
-        .get(`${url}/api/warehouses`)
+        .get(`${url}api/warehouses`)
         .then((res) => {
           setWarehouses(warehouses=res.data)
         })

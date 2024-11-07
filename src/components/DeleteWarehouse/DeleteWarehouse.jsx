@@ -23,7 +23,7 @@ function DeleteWarehouse({name, id}) {
     const deleteWarehouseData = async () => {
       if(hasDelete) {
         await axios
-          .delete(`${url}/api/warehouses/${id}`)
+          .delete(`${url}api/warehouses/${id}`)
           .then(() => {
             window.location.reload();
             returnHome();

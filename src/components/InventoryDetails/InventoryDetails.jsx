@@ -17,7 +17,7 @@ function InventoryDetails() {
     const fetchInventory = async () => {
       if(id) {
         await axios
-          .get(`${url}/api/inventories/${id}`)
+          .get(`${url}api/inventories/${id}`)
           .then((res) => {
             setInventoryData(res.data);
             setWarehouseID(res.data.warehouse_id)
@@ -31,7 +31,7 @@ function InventoryDetails() {
     const fetchWarehouseName = async () => {
       if(warehouseID) {
         await axios
-        .get(`${url}/api/warehouses/${warehouseID}`)
+        .get(`${url}api/warehouses/${warehouseID}`)
         .then((res) => {
           setWarehouseName(res.data.warehouse_name)
         })

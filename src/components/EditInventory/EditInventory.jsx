@@ -25,7 +25,7 @@ const EditInventory = () => {
   useEffect(() => {
     const fetchItemData = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/inventories/${id}`);
+        const response = await axios.get(`${baseUrl}api/inventories/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching item data", error);
@@ -34,7 +34,7 @@ const EditInventory = () => {
 
     const fetchWarehouses = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/warehouses`);
+        const response = await axios.get(`${baseUrl}api/warehouses`);
         if (Array.isArray(response.data)) {
           setWarehouses(response.data);
         } else {
@@ -47,7 +47,7 @@ const EditInventory = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/inventories`);
+        const response = await axios.get(`${baseUrl}api/inventories`);
         if (Array.isArray(response.data)) {
           setCategories(response.data);
         } else {
@@ -71,7 +71,7 @@ const EditInventory = () => {
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.put(`${baseUrl}/api/inventories/${id}`, {
+        const response = await axios.put(`${baseUrl}api/inventories/${id}`, {
           warehouse_id: formData.warehouse,
           item_name: formData.item_name,
           description: formData.description,

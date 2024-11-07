@@ -26,7 +26,7 @@ function EditWarehouse() {
     // Fetch warehouse data by ID
     const fetchWarehouse = async () => {
       try {
-        const response = await axios.get(`${url}/api/warehouses/${id}`);
+        const response = await axios.get(`${url}api/warehouses/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching warehouse data", error);
@@ -46,7 +46,7 @@ function EditWarehouse() {
     if (Object.keys(newErrors).length === 0) {
       try {
         // Axios PUT request
-        const response = await axios.put(`${url}/api/warehouses/${id}`, {
+        const response = await axios.put(`${url}api/warehouses/${id}`, {
           warehouse_name: formData.warehouse_name,
           address: formData.address,
           city: formData.city,

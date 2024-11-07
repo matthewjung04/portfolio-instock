@@ -12,7 +12,7 @@ const DeleteInventory = ({ itemName, id }) => {
 
     const deleteInventoryItem = async () => {
         try {
-            const { data } = await axios.delete(baseUrl + "/api/inventories/" + id);
+            const { data } = await axios.delete(baseUrl + "api/inventories/" + id);
             const itemDelete = document.getElementById(id);
             window.location.reload();
             returnInventoryPage();

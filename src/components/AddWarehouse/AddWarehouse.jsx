@@ -32,7 +32,7 @@ function AddWarehouse() {
     if (Object.keys(newErrors).length === 0) {
       try {
         // POST request
-        const response = await axios.post(`${url}/api/warehouses`, formData);
+        const response = await axios.post(`${url}api/warehouses`, formData);
 
         if (response.status === 201) {
           setSuccessMessage("Warehouse added successfully!");

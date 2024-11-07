@@ -25,7 +25,7 @@ const AddInventory = () => {
   useEffect(() => {
     const fetchWarehouses = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/warehouses`);
+        const response = await axios.get(`${baseUrl}api/warehouses`);
         if (Array.isArray(response.data)) {
           setWarehouses(response.data);
         } else {
@@ -38,7 +38,7 @@ const AddInventory = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/inventories`);
+        const response = await axios.get(`${baseUrl}api/inventories`);
         if (Array.isArray(response.data)) {
           setCategories(response.data);
         } else {
@@ -61,7 +61,7 @@ const AddInventory = () => {
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.post(`${baseUrl}/api/inventories`, {
+        const response = await axios.post(`${baseUrl}api/inventories`, {
           warehouse_id: formData.warehouse,
           item_name: formData.item_name,
           description: formData.description,

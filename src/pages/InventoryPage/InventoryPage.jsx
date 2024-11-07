@@ -31,7 +31,7 @@ const InventoryPage = () => {
         const fetchSearch = async () => {
             if(searchKey) {
                 await axios
-                    .get(`${baseUrl}/api/inventories?s=${searchKey}`)
+                    .get(`${baseUrl}api/inventories?s=${searchKey}`)
                     .then((res) => {
                         setInventoryList(res.data);
                     })
@@ -63,14 +63,14 @@ const InventoryPage = () => {
         const sortInventory = async () => {
             if (descSort) {
                 await axios
-                    .get(`${baseUrl}/api/inventories?sort_by=${column}&order_by=desc`)
+                    .get(`${baseUrl}api/inventories?sort_by=${column}&order_by=desc`)
                     .then((res) => {
                         setInventoryList(res.data);
                         return setInventoryList;
                     })
             } else {
                 await axios
-                    .get(`${baseUrl}/api/inventories?sort_by=${column}&order_by=asc`)
+                    .get(`${baseUrl}api/inventories?sort_by=${column}&order_by=asc`)
                     .then((res) => {
                         setInventoryList(res.data);
                         return setInventoryList;
@@ -83,7 +83,7 @@ const InventoryPage = () => {
 
     const fetchInventoryList = async() => {
         try {
-            const { data } = await axios.get(baseUrl + "/api/inventories/");
+            const { data } = await axios.get(baseUrl + "api/inventories/");
             setInventoryList(data);
             return setInventoryList;
         }
