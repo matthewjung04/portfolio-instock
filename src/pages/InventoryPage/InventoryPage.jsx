@@ -63,7 +63,7 @@ const InventoryPage = () => {
         const sortInventory = async () => {
             if (descSort) {
                 await axios
-                    .get(`http://localhost:8080/api/inventories?sort_by=${column}&order_by=desc`)
+                    .get(`${baseUrl}/api/inventories?sort_by=${column}&order_by=desc`)
                     .then((res) => {
                         setInventoryList(res.data);
                         return setInventoryList;
