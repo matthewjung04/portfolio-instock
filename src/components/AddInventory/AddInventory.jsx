@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AddInventory.scss";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 
 const AddInventory = () => {
 
@@ -106,7 +107,7 @@ const AddInventory = () => {
     <form className="inventory-form" onSubmit={handleSubmit}>
       <div className="inventory-form__header">
         <img
-          src="/src/assets/icons/arrow_back-24px.svg"
+          src={arrowBack}
           alt="Go back"
           className="inventory-form__icon"
           onClick={returnToInventory}

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { url } from '../../utils/utils'
 import "./EditWarehouse.scss";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 
 function EditWarehouse() {
   const { id } = useParams(); // Get the warehouse ID
@@ -103,7 +104,7 @@ function EditWarehouse() {
     <form className="warehouse-form" onSubmit={handleSubmit}>
       <div className="warehouse-form__add">
         <img
-          src="/src/assets/icons/arrow_back-24px.svg"
+          src={arrowBack}
           alt="goback arrow"
           onClick={returnToHome}
           className="warehouse-form__icon"

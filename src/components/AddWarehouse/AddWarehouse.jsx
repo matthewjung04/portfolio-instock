@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { url } from '../../utils/utils'
 import "./AddWarehouse.scss";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 
 function AddWarehouse() {
   const [formData, setFormData] = useState({
@@ -94,7 +95,7 @@ function AddWarehouse() {
     <form className="warehouse-form1" onSubmit={handleSubmit}>
       <div className="warehouse-form1__add">
         <img
-          src="/src/assets/icons/arrow_back-24px.svg"
+          src={arrowBack}
           alt="goback arrow"
           className="warehouse-form1__icon"
           onClick={returnToHome}

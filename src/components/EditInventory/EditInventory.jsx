@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditInventory.scss";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 
 const EditInventory = () => {
   const { id } = useParams();
@@ -108,7 +109,7 @@ const EditInventory = () => {
     <form className="inventory-form2" onSubmit={handleSubmit}>
       <div className="inventory-form2__header">
         <img
-          src="/src/assets/icons/arrow_back-24px.svg"
+          src={arrowBack}
           alt="Go back"
           className="inventory-form2__icon"
           onClick={returnToInventory}
