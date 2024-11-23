@@ -34,3 +34,6 @@ Please access the following repository for the Back-End portion of this project:
     <img src="https://skillicons.dev/icons?i=react,vite,js,npm,nodejs,express,mysql,sass" />
   </a>
 </p>
+
+# Website 
+Click the following link to access the website: https://juandavid-instock.netlify.app/
