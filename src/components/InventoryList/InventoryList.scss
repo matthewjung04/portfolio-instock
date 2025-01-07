@@ -93,7 +93,7 @@ img {
             list-style-type: none;
 
             @include tablet {
-                border-top: 0;
+                border-top: 0.0625rem solid $cloud;
                 list-style-type: none;
             }
         }

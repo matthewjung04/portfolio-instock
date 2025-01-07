@@ -41,7 +41,7 @@ function WarehouseList({ add, edit}) {
   //Sort warehouses function
   const sortWarehouses = async () => {
     if (descSort) {
-        try {
+      try {
         const { data } = await axios.get(`${baseUrl}api/warehouses?sort_by=${column}&order_by=desc`);
         setWarehouses(data);
         return setWarehouses;
