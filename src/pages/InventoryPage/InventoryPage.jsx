@@ -16,7 +16,7 @@ const InventoryPage = () => {
     const [column, setColumn] = useState('');
     const [searchKey, setSearchKey] = useState('');
 
-    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+    const baseUrl = import.meta.env.VITE_API_URL || 'https://instock-backend-646bc23e299e.herokuapp.com/';
 
     const searchResults = (e) => {
         setSearchKey(e.target.value);
